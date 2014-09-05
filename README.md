@@ -30,7 +30,7 @@ You can simulate this POST request and test your server with a simple cURL comma
 
 ```shell
 curl -X POST --no-check-certificate\
---data "from=492111234567&to=492111234567" https://example.com:3000
+ --data "from=492111234567&to=492111234567" https://localhost:3000
 ```
 
 ***
