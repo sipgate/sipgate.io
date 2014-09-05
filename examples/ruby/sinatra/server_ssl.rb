@@ -7,7 +7,7 @@ require 'sinatra'
 
 SERVER_CERT = "server-cert.pem"
 SERVER_KEY = "server-key.pem"
-PORT = 1194
+PORT = 3000
 
 module Sinatra
 	class Application
@@ -23,9 +23,9 @@ module Sinatra
 			}
 
 			Rack::Handler::WEBrick.run self, server_options do |server|
-			[:INT, :TERM].each { |sig| trap(sig) { server.stop } }
-			server.threaded = settings.threaded if server.respond_to? :threaded=
-			set :running, true
+				[:INT, :TERM].each { |sig| trap(sig) { server.stop } }
+				server.threaded = settings.threaded if server.respond_to? :threaded=
+				set :running, true
 			end
 		end
 	end
