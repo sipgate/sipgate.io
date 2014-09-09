@@ -29,8 +29,8 @@ That's all!
 You can simulate this POST request and test your server with a simple cURL command:
 
 ```shell
-curl -X POST --insecure\
- --data "from=492111234567&to=492111234567" https://localhost:3000
+curl -X POST --insecure \
+--data "from=492111234567&to=492111234567" https://localhost:3000
 ```
 
 ***
