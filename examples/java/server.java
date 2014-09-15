@@ -44,7 +44,7 @@ public class server {
 			}
 			
 			//Check which number is calling
-			if (builder.toString().contains("from=491786067209"))
+			if (builder.toString().contains("from=491234567890"))
 				System.out.println("\nDo something here");
 
 			System.out.println("\n200 OK");
