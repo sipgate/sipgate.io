@@ -2,7 +2,7 @@
 ;; You can obtain it from http://weitz.de/hunchentoot/
 ;;
 ;; If you use quicklisp, you can simply install it by evaluating
-;; (ql:quicklisp "hunchentoot")
+;; (ql:quickload "hunchentoot")
 
 (require :hunchentoot)
 (use-package :hunchentoot)
