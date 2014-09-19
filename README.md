@@ -40,7 +40,8 @@ curl -X POST --insecure \
 We compiled a collection of examples to get you started:
 
 * [Java](https://github.com/sipgate/Push-API/tree/master/examples/java)
-* [Node.js](https://github.com/sipgate/Push-API/tree/master/examples/node.js)
+* [Common Lisp](https://github.com/sipgate/Push-API/tree/master/examples/commonlisp)
+* [Node.js](https://github.com/sipgate/Push-API/tree/master/examples/nodejs)
 * [Perl](https://github.com/sipgate/Push-API/tree/master/examples/perl)
 * [PHP](https://github.com/sipgate/Push-API/tree/master/examples/php)
 * [Python](https://github.com/sipgate/Push-API/tree/master/examples/python)
