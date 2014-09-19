@@ -4,7 +4,7 @@ import org.http4s.dsl._
 import java.net.URLDecoder
 
 object Server extends App {
-  def fromDataFromBody(body: String) = {
+  def parseBody(body: String) = {
     body.split("&").map( s => {
       val m =  s.split("=", 2).map(s => URLDecoder.decode(s, "UTF-8"))
       m(0) -> m(1)
@@ -13,7 +13,7 @@ object Server extends App {
 
   val service: HttpService = {
     case req @ POST -> Root =>
-      val data = fromDataFromBody(text(req).run)
+      val data = parseBody(text(req).run)
       println("from: " + data.getOrElse("from", ""))
       println("to: " + data.getOrElse("to", ""))
       Ok("roger that")
@@ -21,4 +21,3 @@ object Server extends App {
 
   BlazeServer.newBuilder.mountService(service, "/").run()
 }
-
