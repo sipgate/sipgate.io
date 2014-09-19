@@ -11,3 +11,5 @@ $logRow = $timestamp . " - from " . $fromNumber . " to " . $toNumber . PHP_EOL;
 
 // append the log row to the callog.txt file, make sure this file is writeable (e.g. create the file and chmod 777 it)
 file_put_contents("callog.txt",$logRow,FILE_APPEND);
+
+die("Thanks - here's a motivational squirrel for you! https://www.youtube.com/watch?v=m3d03-sSiBE");
