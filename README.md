@@ -20,7 +20,7 @@ Our API sends a simple POST request with an `application/x-www-form-urlencoded` 
 Parameter | Description
 --------- | -----------
 from      | The calling number (e.g. `"492111234567"` or `"anonymous"`)
-to        | The called number (e.g. `"492111234567"`)
+to        | The called number (e.g. `"4915791234567"`)
 
 That's all!
 
@@ -30,12 +30,12 @@ You can simulate this POST request and test your server with a simple cURL comma
 
 ```shell
 curl -X POST --insecure \
---data "from=492111234567&to=492111234567" https://localhost:3000
+--data "from=492111234567&to=4915791234567" https://localhost:3000
 ```
 
 ***
 
-## Examples
+## Server Examples
 
 We compiled a collection of examples to get you started:
 
