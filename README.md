@@ -55,7 +55,7 @@ We compiled a collection of examples to get you started:
 
 ### HTTP vs. HTTPS
 
-We strongly encourage you to use a HTTPS server. Although we support plain HTTP connections we do not recommend pushing sensitive call details over unencrypted connections. The API accepts [self-signed certificates](http://stackoverflow.com/a/10176685) to support secured connections.
+We strongly encourage you to use a HTTPS server. Although we support plain HTTP connections we do not recommend pushing sensitive call details over unencrypted connections. By default, the API does not accept [self-signed certificates](http://stackoverflow.com/a/10176685), but you can enable them in the dashboard.
 
 ### Authentication
 
