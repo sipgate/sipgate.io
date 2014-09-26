@@ -39,6 +39,7 @@ curl -X POST --insecure \
 
 We compiled a collection of examples to get you started:
 
+* [Clojure](https://github.com/sipgate/Push-API/tree/master/examples/clojure)
 * [Common Lisp](https://github.com/sipgate/Push-API/tree/master/examples/commonlisp)
 * [Go](https://github.com/sipgate/Push-API/tree/master/examples/go)
 * [Java](https://github.com/sipgate/Push-API/tree/master/examples/java)
