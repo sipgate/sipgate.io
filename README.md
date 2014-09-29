@@ -46,6 +46,7 @@ We compiled a collection of examples to get you started:
 * [Node.js](https://github.com/sipgate/Push-API/tree/master/examples/nodejs)
 * [PHP](https://github.com/sipgate/Push-API/tree/master/examples/php)
 * [Perl](https://github.com/sipgate/Push-API/tree/master/examples/perl)
+* [Prolog](https://github.com/sipgate/Push-API/tree/master/examples/prolog)
 * [Python](https://github.com/sipgate/Push-API/tree/master/examples/python)
 * [Ruby](https://github.com/sipgate/Push-API/tree/master/examples/ruby)
 * [Scala](https://github.com/sipgate/Push-API/tree/master/examples/scala)
