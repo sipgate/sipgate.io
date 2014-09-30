@@ -30,7 +30,7 @@ You can simulate this POST request and test your server with a simple cURL comma
 
 ```shell
 curl -X POST --insecure \
---data "from=492111234567&to=4915791234567" https://localhost:3000
+--data "from=492111234567&to=4915791234567" http://localhost:3000
 ```
 
 ***
