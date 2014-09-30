@@ -67,5 +67,5 @@ The API supports HTTP Basic Authentication. You can include your username and pa
 
 ## Help us make it better
 
-Please tell us how we can make the API better. If you have a specific feature request or if you found a bug, please use [GitHub Issues](https://github.com/sipgate/Push-API/issues) or fork these docs and send a [pull request](https://github.com/sipgate/Push-API/pulls) with your improvements.
+Please tell us how we can make the API better. If you have a specific feature request or if you found a bug or would like to add an example, please use [GitHub Issues](https://github.com/sipgate/Push-API/issues) or fork these docs and send a [pull request](https://github.com/sipgate/Push-API/pulls) with your improvements.
 
