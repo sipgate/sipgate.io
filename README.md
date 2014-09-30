@@ -1,6 +1,6 @@
 # simquadrat Push-API
 
-This README documents the simquadrat Push-API functionality. A demo page can be found [here](https://api.simquadrat.de). (Page is in German)
+This README documents the simquadrat Push-API functionality. A demo page can be found [here](https://api.simquadrat.de)(German).
 
 ## Checklist
 
@@ -29,8 +29,7 @@ That's all!
 You can simulate this POST request and test your server with a simple cURL command:
 
 ```shell
-curl -X POST --insecure \
---data "from=492111234567&to=4915791234567" http://localhost:3000
+curl -X POST --data "from=492111234567&to=4915791234567" http://localhost:3000
 ```
 
 ***
