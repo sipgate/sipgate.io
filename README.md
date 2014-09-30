@@ -2,12 +2,11 @@
 
 This README documents the simquadrat Push-API functionality. A demo page can be found [here](https://api.simquadrat.de).
 
-## Checklist
+## Requirements
 
-* [Order a simquadrat SIM](https://www.simquadrat.de)
-* [Book the Push-API feature](https://www.simquadrat.de/feature-store/push-api)
-* [Enter your URL in the simquadrat dashboard](https://www.simquadrat.de/dashboard)
-* Hack away
+* [x] [Order a simquadrat SIM](https://www.simquadrat.de)
+* [x] [Book the Push-API feature](https://www.simquadrat.de/feature-store/push-api)
+* [x] [Enter your URL in the simquadrat dashboard](https://www.simquadrat.de/dashboard)
 
 ***
 
