@@ -1,6 +1,6 @@
 # simquadrat Push-API
 
-This README documents the simquadrat Push-API functionality. A demo page can be found [here](https://api.simquadrat.de).
+This README documents the simquadrat Push-API functionality. A demo page can be found [here](https://api.simquadrat.de) (Page is in German).
 
 ## Checklist
 
