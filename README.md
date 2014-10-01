@@ -10,7 +10,7 @@ This README documents the simquadrat Push-API functionality. A demo page can be 
 
 ***
 
-## Basics
+## Documentation
 
 ### The POST request
 
@@ -31,11 +31,9 @@ You can simulate this POST request and test your server with a simple cURL comma
 curl -X POST --data "from=492111234567&to=4915791234567" http://localhost:3000
 ```
 
-***
+### Server Examples
 
-## Server Examples
-
-We compiled a collection of examples to get you started:
+We compiled a collection of server examples to get you started:
 
 * [Clojure](https://github.com/sipgate/Push-API/tree/master/examples/clojure)
 * [Common Lisp](https://github.com/sipgate/Push-API/tree/master/examples/commonlisp)
@@ -49,30 +47,26 @@ We compiled a collection of examples to get you started:
 * [Ruby](https://github.com/sipgate/Push-API/tree/master/examples/ruby)
 * [Scala](https://github.com/sipgate/Push-API/tree/master/examples/scala)
 
-***
+### Troubleshooting
 
-## Troubleshooting
-
-### Push-API Log
+#### Push-API Log
 
 You can enable logging within you account for debugging purposes. You will find each request and the corresponding response in the logging table.
 
-### How do I inspect network traffic?
+#### How do I inspect network traffic?
 
 You can use ```ngrep``` to inspect the incoming requests on your side.
 ```shell
 sudo ngrep -dany -Wbyline port 3000
 ```
 
-***
+### A word about security
 
-## A word about security
-
-### HTTP vs. HTTPS
+#### HTTP vs. HTTPS
 
 We strongly encourage you to use a HTTPS server. Although we support plain HTTP connections we do not recommend pushing sensitive call details over unencrypted connections. By default, the API does not accept [self-signed certificates](http://stackoverflow.com/a/10176685), but you can enable them in the dashboard.
 
-### Authentication
+#### Authentication
 
 The API supports HTTP Basic Authentication. You can include your username and password within the URL (e.g. `https://username:password@example.com:8080`).
 
