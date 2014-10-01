@@ -8,8 +8,6 @@ This README documents the simquadrat Push-API functionality. A demo page can be 
 * [x] [Book the Push-API feature](https://www.simquadrat.de/feature-store/push-api)
 * [x] [Enter your URL in the simquadrat dashboard](https://www.simquadrat.de/dashboard)
 
-***
-
 ## Documentation
 
 ### The POST request
@@ -69,8 +67,6 @@ We strongly encourage you to use a HTTPS server. Although we support plain HTTP 
 #### Authentication
 
 The API supports HTTP Basic Authentication. You can include your username and password within the URL (e.g. `https://username:password@example.com:8080`).
-
-***
 
 ## Help us make it better
 
