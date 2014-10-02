@@ -4,10 +4,10 @@
 ;; $ lein run
 ;;
 ;; For complete example (including project file) please look at
-;; https://github.com/sipgate/Push-API/tree/master/examples/clojure
+;; https://github.com/sipgate/sipgate.io/tree/master/examples/clojure
 ;;
 
-(ns pushapi.server
+(ns sipgateio.server
   (:gen-class))
 
 (use 'ring.adapter.jetty

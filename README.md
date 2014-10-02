@@ -1,11 +1,11 @@
-# simquadrat Push-API
+# sipgate.io
 
-This README documents the simquadrat Push-API functionality. A demo page can be found [here](https://api.simquadrat.de).
+This README documents the sipgate.io functionality. A demo page can be found [here](https://demo.sipgate.io).
 
 ## Requirements
 
 * [x] [Order a simquadrat SIM](https://www.simquadrat.de)
-* [x] [Book the Push-API feature](https://www.simquadrat.de/feature-store/push-api)
+* [x] [Book the sipgate.io feature](https://www.simquadrat.de/feature-store/sipgate.io)
 * [x] [Enter your URL in the simquadrat dashboard](https://www.simquadrat.de/dashboard)
 
 ## Documentation
@@ -33,21 +33,21 @@ curl -X POST --data "from=492111234567&to=4915791234567" http://localhost:3000
 
 We compiled a collection of server examples to get you started:
 
-* [Clojure](https://github.com/sipgate/Push-API/tree/master/examples/clojure)
-* [Common Lisp](https://github.com/sipgate/Push-API/tree/master/examples/commonlisp)
-* [Go](https://github.com/sipgate/Push-API/tree/master/examples/go)
-* [Java](https://github.com/sipgate/Push-API/tree/master/examples/java)
-* [Node.js](https://github.com/sipgate/Push-API/tree/master/examples/nodejs)
-* [PHP](https://github.com/sipgate/Push-API/tree/master/examples/php)
-* [Perl](https://github.com/sipgate/Push-API/tree/master/examples/perl)
-* [Prolog](https://github.com/sipgate/Push-API/tree/master/examples/prolog)
-* [Python](https://github.com/sipgate/Push-API/tree/master/examples/python)
-* [Ruby](https://github.com/sipgate/Push-API/tree/master/examples/ruby)
-* [Scala](https://github.com/sipgate/Push-API/tree/master/examples/scala)
+* [Clojure](https://github.com/sipgate/sipgate.io/tree/master/examples/clojure)
+* [Common Lisp](https://github.com/sipgate/sipgate.io/tree/master/examples/commonlisp)
+* [Go](https://github.com/sipgate/sipgate.io/tree/master/examples/go)
+* [Java](https://github.com/sipgate/sipgate.io/tree/master/examples/java)
+* [Node.js](https://github.com/sipgate/sipgate.io/tree/master/examples/nodejs)
+* [PHP](https://github.com/sipgate/sipgate.io/tree/master/examples/php)
+* [Perl](https://github.com/sipgate/sipgate.io/tree/master/examples/perl)
+* [Prolog](https://github.com/sipgate/sipgate.io/tree/master/examples/prolog)
+* [Python](https://github.com/sipgate/sipgate.io/tree/master/examples/python)
+* [Ruby](https://github.com/sipgate/sipgate.io/tree/master/examples/ruby)
+* [Scala](https://github.com/sipgate/sipgate.io/tree/master/examples/scala)
 
 ### Troubleshooting
 
-#### Push-API Log
+#### sipgate.io Log
 
 You can enable logging within you account for debugging purposes. You will find each request and the corresponding response in the logging table.
 
@@ -70,5 +70,5 @@ The API supports HTTP Basic Authentication. You can include your username and pa
 
 ## Help us make it better
 
-Please tell us how we can make the API better. If you have a specific feature request or if you found a bug or would like to add an example, please use [GitHub Issues](https://github.com/sipgate/Push-API/issues) or fork these docs and send a [pull request](https://github.com/sipgate/Push-API/pulls) with your improvements.
+Please tell us how we can make the API better. If you have a specific feature request or if you found a bug or would like to add an example, please use [GitHub Issues](https://github.com/sipgate/sipgate.io/issues) or fork these docs and send a [pull request](https://github.com/sipgate/sipgate.io/pulls) with your improvements.
 
