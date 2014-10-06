@@ -1,0 +1,13 @@
+{
+	"name": "sipgate.io",
+	"description": "sipgate.io node.js example",
+	"version": "0.0.1",
+	"private": true,
+	"engines": {
+		"node": "0.10.x"
+	},
+	"dependencies": {
+		"express": "~4.9.2",
+		"body-parser": "~1.8.2"
+	}
+}
