@@ -60,7 +60,7 @@ Troubleshooting
 sipgate.io Log
 --------------
 
-You can enable logging within you account for debugging purposes. You will find each request and the corresponding response in the logging table.
+You can enable logging within your account for debugging purposes. You will find each request and the corresponding response in the logging table.
 
 How do I inspect network traffic?
 ---------------------------------
