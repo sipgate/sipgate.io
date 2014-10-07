@@ -51,6 +51,7 @@ We compiled a collection of server examples to get you started:
 * [Python](https://github.com/sipgate/sipgate.io/tree/master/examples/python)
 * [Ruby](https://github.com/sipgate/sipgate.io/tree/master/examples/ruby)
 * [Scala](https://github.com/sipgate/sipgate.io/tree/master/examples/scala)
+* [C++](https://github.com/sipgate/sipgate.io/tree/master/examples/c++)
 
 
 
