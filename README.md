@@ -40,6 +40,7 @@ Server Examples
 
 We compiled a collection of server examples to get you started:
 
+* [C++](https://github.com/sipgate/sipgate.io/tree/master/examples/c++)
 * [Clojure](https://github.com/sipgate/sipgate.io/tree/master/examples/clojure)
 * [Common Lisp](https://github.com/sipgate/sipgate.io/tree/master/examples/commonlisp)
 * [Go](https://github.com/sipgate/sipgate.io/tree/master/examples/go)
@@ -51,7 +52,6 @@ We compiled a collection of server examples to get you started:
 * [Python](https://github.com/sipgate/sipgate.io/tree/master/examples/python)
 * [Ruby](https://github.com/sipgate/sipgate.io/tree/master/examples/ruby)
 * [Scala](https://github.com/sipgate/sipgate.io/tree/master/examples/scala)
-* [C++](https://github.com/sipgate/sipgate.io/tree/master/examples/c++)
 
 
 
