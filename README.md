@@ -29,7 +29,7 @@ That's all!
 
 You can simulate this POST request and test your server with a simple cURL command:
 
-```shell
+```sh
 curl -X POST --data "from=492111234567&to=4915791234567" http://localhost:3000
 ```
 
@@ -67,7 +67,7 @@ How do I inspect network traffic?
 ---------------------------------
 
 You can use ```ngrep``` to inspect the incoming requests on your side:
-```shell
+```sh
 sudo ngrep -dany -Wbyline port 3000
 ```
 
