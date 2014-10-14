@@ -18,7 +18,7 @@ sipgate.io Changelog
 * Python example from [scgitsip](https://github.com/scgitsip)
 * PHP example from [tpxtron](https://github.com/tpxtron)
 * Java example from [scgitsip](https://github.com/scgitsip)
-* Go example from [vileda](https://github.com/vileada)
+* Go example from [vileda](https://github.com/vileda)
 * Common Lisp example from [olivermg](https://github.com/olivermg)
 * Clojure example from [olivermg](https://github.com/olivermg)
 * Prolog example from [kr1schan](https://github.com/kr1schan)
