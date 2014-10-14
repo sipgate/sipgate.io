@@ -1,3 +1,4 @@
 requires 'Mojolicious';
 # requires 'IO::Socket::SSL';
 # requires 'Mojolicious::Plugin::BasicAuth';
+requires 'XML::Simple';
