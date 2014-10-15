@@ -13,7 +13,7 @@ $dom->appendChild($response);
 // Only reject calls from a certain number, e.g. your mother-in-law
 if($fromNumber == "49190666666") {
 	// Add hangup command as child in response
-	$hangup = $dom->createElement('reject');
+	$hangup = $dom->createElement('Reject');
 
 	// Create a new attribute for the hangup element and assign "busy" as value, so that the caller hears a busy-tone
 	$hangupReason = $dom->createAttribute('reason');

@@ -9,7 +9,7 @@ http.createServer(function (req, res) {
 
 	// create XML root tree called "response"
 	var response = builder.create('response',{version: '1.0', encoding: 'UTF-8'},{})
-		.ele('reject', {'reason': 'busy'})			// add "reject" with reason "busy"
+		.ele('Reject', {'reason': 'busy'})			// add "reject" with reason "busy"
 		.end({ pretty: true});
 
 	var body = response.toString();
