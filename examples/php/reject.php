@@ -7,7 +7,7 @@ $fromNumber = $_POST['from'];     // the number of the caller
 $dom = new DOMDocument('1.0', 'UTF-8');
 
 // Add response child
-$response = $dom->createElement('response');
+$response = $dom->createElement('Response');
 $dom->appendChild($response);
 
 // Only reject calls from a certain number, e.g. your mother-in-law

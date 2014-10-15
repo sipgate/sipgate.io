@@ -8,7 +8,7 @@ var builder = require('xmlbuilder');
 http.createServer(function (req, res) {
 
 	// create XML root tree called "response"
-	var response = builder.create('response',{version: '1.0', encoding: 'UTF-8'},{})
+	var response = builder.create('Response',{version: '1.0', encoding: 'UTF-8'},{})
 		.ele('Reject', {'reason': 'busy'})			// add "reject" with reason "busy"
 		.end({ pretty: true});
 
