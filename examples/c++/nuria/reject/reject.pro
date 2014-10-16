@@ -1,6 +1,6 @@
 # Example project file for a sipgate.io HTTP server
 TEMPLATE = app
-TARGET = example
+TARGET = reject
 INCLUDEPATH += .
 
 # Dependency to the NuriaProject Framework
@@ -9,4 +9,4 @@ CONFIG += nuria
 NURIA += core network
 
 # 
-SOURCES += example.cpp
+SOURCES += reject.cpp
