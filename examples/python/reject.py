@@ -24,7 +24,7 @@ class MegaAwesomePythonServer(BaseHTTPRequestHandler):
         doc.appendChild(response)
 
         self.send_response(200)
-        self.send_header('Content-type', 'text/html')
+        self.send_header('Content-Type', 'application/xml')
         self.end_headers()
         self.wfile.write(doc.toxml())
 
