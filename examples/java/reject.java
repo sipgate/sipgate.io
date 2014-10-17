@@ -23,12 +23,13 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
-public class reject {
+public class reject
+{
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception
+	{
 
-		HttpServer httpServer = HttpServer.create(new InetSocketAddress(1194),
-				0);
+		HttpServer httpServer = HttpServer.create(new InetSocketAddress(3000),0);
 		httpServer.createContext("/", new AwesomeRejectHandler());
 		httpServer.setExecutor(null);
 		httpServer.start();
@@ -37,32 +38,39 @@ public class reject {
 		System.out.println("Press CTRL+C to stop the server");
 	}
 
-	static class AwesomeRejectHandler implements HttpHandler {
+	static class AwesomeRejectHandler implements HttpHandler
+	{
 
-		public void handle(HttpExchange httpExchange) throws IOException {
+		public void handle(HttpExchange httpExchange) throws IOException
+		{
 
 			InputStream inputStream = httpExchange.getRequestBody();
 			int charValue;
 			ArrayList<Character> chars = new ArrayList<Character>();
 
-			while ((charValue = inputStream.read()) != -1) {
+			while ((charValue = inputStream.read()) != -1)
+			{
 				chars.add((char) charValue);
 			}
 
 			StringBuilder stringBuilder = new StringBuilder(chars.size());
 
-			for (Character character : chars) {
+			for (Character character : chars)
+			{
 				stringBuilder.append(character);
 			}
-			// Print data
+			// Print data from=&to=
 			System.err.println("INFO: DATA: " + stringBuilder.toString());
 
 			String XMLResponse = "";
 
-			if (stringBuilder.toString().contains("from=49157123456789")) {
-				XMLResponse = XMLParser("busy"); //sent busy signal
-			} else {
-				XMLResponse = XMLParser(""); // default reason value for reject
+			if (stringBuilder.toString().contains("from=4915799912345"))
+			{
+				XMLResponse = createXML("busy"); // sent busy signal
+			}
+			else
+			{
+				XMLResponse = createXML(""); // default reason value for reject
 			}
 
 			// Print XML
@@ -71,20 +79,21 @@ public class reject {
 			Headers headers = httpExchange.getResponseHeaders();
 			headers.set("Content-Type", "application/xml");
 			httpExchange.sendResponseHeaders(200, XMLResponse.length());
+
 			OutputStream outputStream = httpExchange.getResponseBody();
 			outputStream.write(XMLResponse.getBytes());
 			outputStream.close();
 		}
 
 		// Build XML with DOM and return as string
-		public String XMLParser(String reason) throws IOException {
+		public String createXML(String reason) throws IOException
+		{
 			String XMLResult = "";
 
-			try {
-				DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
-						.newInstance();
-				DocumentBuilder documentBuilder = documentBuilderFactory
-						.newDocumentBuilder();
+			try
+			{
+				DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+				DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
 
 				// First node
 				Document document = documentBuilder.newDocument();
@@ -97,15 +106,15 @@ public class reject {
 				xmlNodeResponse.appendChild(xmlNodeReject);
 
 				// Second node attribute
-				if (!reason.isEmpty()) {
+				if (!reason.isEmpty())
+				{
 					Attr xmlAttribute = document.createAttribute("reason");
 					xmlAttribute.setValue(reason);
 					xmlNodeReject.setAttributeNode(xmlAttribute);
 				}
 
 				// Write the content into XMl format
-				TransformerFactory transformerFactory = TransformerFactory
-						.newInstance();
+				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 
 				DOMSource domSource = new DOMSource(document);
@@ -117,9 +126,13 @@ public class reject {
 				transformer.transform(domSource, streamResult);
 				XMLResult = stringWriter.toString();
 
-			} catch (ParserConfigurationException parserConfigurationException) {
+			}
+			catch (ParserConfigurationException parserConfigurationException)
+			{
 				parserConfigurationException.printStackTrace();
-			} catch (TransformerException tranformerException) {
+			}
+			catch (TransformerException tranformerException)
+			{
 				tranformerException.printStackTrace();
 			}
 			return XMLResult.toString();
