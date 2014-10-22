@@ -46,7 +46,7 @@ Action            | Description
 Dial
 ----
 
-Send call to voicemail or external number.
+Send call to voicemail or an external number ([call charges apply](https://www.simquadrat.de/tarife/mobile)).
 
 Target    | Description
 --------- | -----------
