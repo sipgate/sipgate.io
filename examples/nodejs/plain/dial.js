@@ -9,9 +9,9 @@ http.createServer(function (req, res) {
 
 	// create XML root tree called "response"
 	var response = builder.create('response',{version: '1.0', encoding: 'UTF-8'},{})
-		.ele('dial')					// add "dial" child
-		.ele('voicemail')				// add "voicemail" child
-//		.ele('phone','49211000000')		// if you want, you could also redirect to a phone number
+		.ele('Dial')					// add "dial" child
+		.ele('Voicemail')				// add "voicemail" child
+//		.ele('Number','49211000000')			// if you want, you could also redirect to a phone number
 		.end({ pretty: true});
 
 	var body = response.toString();
