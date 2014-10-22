@@ -12,10 +12,10 @@ post '/' => sub {
 	app->log->debug("from: '$from'");
 	app->log->debug("to: '$to'");
 
-	$c->respond_to(
-		any => { text => 'We ♥ perl!' },
-		xml => { text => XMLout( { Reject => [ { reason => "busy" } ] }, RootName => "Response") }
-		# xml => { text => XMLout( { Reject => [ {} ] }, RootName => "Response") }
+	$c->render(
+		format => "xml",
+		data => XMLout( { Reject => [ { reason => "busy" } ] }, RootName => "Response"),
+		# data => XMLout( { Reject => [ { } ] }, RootName => "Response"),
 	);
 };
 
