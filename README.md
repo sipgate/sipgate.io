@@ -30,31 +30,64 @@ You can simulate this POST request and test your server with a simple cURL comma
 curl -X POST --data "from=492111234567&to=4915791234567" http://localhost:3000
 ```
 
+
+
 The XML response
 ============
-After sending the POST request sipgate.io will accept an XML response to determine what to do. Make sure to set ```application/xml``` in the ```Content-Type``` header of your response and you are ready to go!
+After sending the POST request sipgate.io will accept an XML response to determine what to do. Make sure to set ```application/xml``` in the ```Content-Type``` header of your response.
 
 sipgate.io currently supports the following responses:
 
 Action            | Description
 ----------------- | -----------
+[Dial](#dial)     | Send call to voicemail or external number
 [Reject](#reject) | Reject call or pretend to be busy
+
+Dial
+----
+
+Send call to voicemail or external number.
+
+Target    | Description
+--------- | -----------
+Number    | Send call to an external number (has to be in [E.164](http://en.wikipedia.org/wiki/E.164) format)
+Voicemail | Send call to [voicemail](https://www.simquadrat.de/feature-store/voicemail) (feature has to be booked)
+
+**Example 1: Redirect call**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+	<Dial>
+		<Number>4915799912345</Number>
+	</Dial>
+</Response>
+```
+
+**Example 2: Send call to voicemail**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+	<Dial>
+		<Voicemail />
+	</Dial>
+</Response>
+```
 
 Reject
 ------
 
 Pretend to be busy or block unwanted calls. 
 
-Possible attributes | Possible values | Default value
-------------------- | --------------- | -------------
-reason              | rejected, busy  | rejected
+Attribute | Possible values | Default value
+--------- | --------------- | -------------
+reason    | rejected, busy  | rejected
 
 
 **Example 1: Reject call**
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-        <Reject />
+	<Reject />
 </Response>
 ```
 
@@ -62,9 +95,10 @@ reason              | rejected, busy  | rejected
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-        <Reject reason="busy" />
+	<Reject reason="busy" />
 </Response>
 ```
+
 
 More to come
 ------------
