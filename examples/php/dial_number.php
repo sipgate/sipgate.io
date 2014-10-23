@@ -17,5 +17,5 @@ $dial->appendChild($number);
 
 $response->appendChild($dial);
 
-Header('Content-type: text/xml');
+Header('Content-type: application/xml');
 echo $dom->saveXML();
