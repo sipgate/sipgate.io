@@ -23,5 +23,5 @@ if($fromNumber == "49190666666") {
 	$response->appendChild($hangup);
 }
 
-Header('Content-type: application/xml');
+header('Content-type: application/xml');
 echo $dom->saveXML();
