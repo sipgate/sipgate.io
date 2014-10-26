@@ -16,5 +16,5 @@ $dial->appendChild($voicemail);
 
 $response->appendChild($dial);
 
-Header('Content-type: application/xml');
+header('Content-type: application/xml');
 echo $dom->saveXML();
