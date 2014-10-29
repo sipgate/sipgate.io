@@ -21,7 +21,7 @@ http.createServer(function (req, res) {
 		  'Content-Type': 'application/xml'
 	});
 
-	res.write(body);
+	res.header('Content-Type','application/xml').write(body);
 
 	res.end();
 }).listen(3000);
