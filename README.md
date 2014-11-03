@@ -150,7 +150,7 @@ A word about security
 HTTP vs. HTTPS
 --------------
 
-We strongly encourage you to use a HTTPS server. Although we support plain HTTP connections we do not recommend pushing sensitive call details over unencrypted connections. By default sipgate.io does not accept [self-signed certificates](http://stackoverflow.com/a/10176685), but you can allow them in the simquadrat dashboard.
+We strongly encourage you to use a HTTPS server. Although we support plain HTTP connections we do not recommend pushing sensitive call details over unencrypted connections. By default sipgate.io does not accept [self-signed certificates](http://stackoverflow.com/a/10176685), but you can allow them in the simquadrat dashboard. Furthermore, you can add the public key of your certificate to protect the connection against man-in-the-middle attacks. Your certificate is validated by our server.
 
 Authentication
 --------------
