@@ -21,13 +21,14 @@ Parameter | Description
 --------- | -----------
 from      | The calling number (e.g. `"492111234567"` or `"anonymous"`)
 to        | The called number (e.g. `"4915791234567"`)
+direction | The direction of the call (either `"in"` or `"out"`)
 
 That's all!
 
 You can simulate this POST request and test your server with a simple cURL command:
 
 ```sh
-curl -X POST --data "from=492111234567&to=4915791234567" http://localhost:3000
+curl -X POST --data "from=492111234567&to=4915791234567&direction=in" http://localhost:3000
 ```
 
 
@@ -41,7 +42,9 @@ sipgate.io currently supports the following responses:
 Action            | Description
 ----------------- | -----------
 [Dial](#dial)     | Send call to voicemail or external number
+[Play](#play)     | Play a sound file
 [Reject](#reject) | Reject call or pretend to be busy
+[Hangup](#hangup) | Hang up the call
 
 Dial
 ----
@@ -73,6 +76,34 @@ Voicemail | Send call to [voicemail](https://www.simquadrat.de/feature-store/voi
 </Response>
 ```
 
+Play
+----
+
+Play a given sound file.
+
+Target    | Description
+--------- | -----------
+Url       | Play a sound file from a given URL
+
+
+**Example 1: Play a sound file**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+	<Play>
+		<Url>http://example.com/example.wav</Url>
+	</Play>
+</Response>
+```
+
+**Please note:** Currently the sound file needs to be a mono 16bit PCM WAV file with a sampling rate of 8kHz. You can use conversion tools like the open source audio editor [Audacity](http://audacity.sourceforge.net/) to convert any sound file to the correct format.
+
+Linux users might want to use ```mpg123``` to convert the file:
+```sh
+mpg123 --rate 8000 --mono -w output.wav input.mp3
+```
+
+
 Reject
 ------
 
@@ -98,6 +129,22 @@ reason    | rejected, busy  | rejected
 	<Reject reason="busy" />
 </Response>
 ```
+
+
+
+Hangup
+------
+
+Hang up calls
+
+**Example 1: Hang up call**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+	<Hangup />
+</Response>
+```
+
 
 
 More to come
