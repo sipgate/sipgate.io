@@ -1,6 +1,15 @@
 sipgate.io Changelog
 ====================
 
+1.3.0 Phil (2014-11-18)
+-----------------------
+***Features***
+* Play WAV file from a given URL
+* Hang up calls
+
+***Resolved issues***
+* Client doesn't support compression, despite it being advertised in Accept-Encoding ([#11](https://github.com/sipgate/sipgate.io/issues/11))
+
 1.2.0 Levi (2014-10-22)
 -----------------------
 ***Features***
