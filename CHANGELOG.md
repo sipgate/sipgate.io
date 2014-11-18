@@ -5,7 +5,10 @@ sipgate.io Changelog
 -----------------------
 ***Features***
 * Play WAV file from a given URL
+* ```<Play>``` ```<Url>``` example XML in README.md
 * Hang up calls
+* ```<Hangup>``` example XML in README.md
+* Update examples
 
 ***Resolved issues***
 * Client doesn't support compression, despite it being advertised in Accept-Encoding ([#11](https://github.com/sipgate/sipgate.io/issues/11))
