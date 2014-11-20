@@ -8,7 +8,7 @@ Requirements
 
 * [x] [Order a simquadrat SIM](https://www.simquadrat.de)
 * [x] [Book the sipgate.io feature](https://www.simquadrat.de/feature-store/sipgate.io)
-* [x] [Enter your URL in the simquadrat dashboard](https://www.simquadrat.de/dashboard)
+* [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://www.simquadrat.de/dashboard)
 
 
 
@@ -37,7 +37,7 @@ The XML response
 ============
 After sending the POST request sipgate.io will accept an XML response to determine what to do. Make sure to set ```application/xml``` in the ```Content-Type``` header of your response.
 
-sipgate.io currently supports the following responses:
+sipgate.io currently supports the following responses for incoming and outgoing calls:
 
 Action            | Description
 ----------------- | -----------
