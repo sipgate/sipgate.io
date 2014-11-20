@@ -1,6 +1,11 @@
 sipgate.io Changelog
 ====================
 
+1.4.0 Frida (2014-11-20)
+-----------------------
+***Features***
+* POST request for outgoing calls
+
 1.3.0 Phil (2014-11-18)
 -----------------------
 ***Features***
