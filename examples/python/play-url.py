@@ -15,6 +15,7 @@ class MegaAwesomePythonServer(BaseHTTPRequestHandler):
 
         logging.debug("from: " + data.get("from")[0])
         logging.debug("to: " + data.get("to")[0])
+        logging.debug("direction: " + data.get("direction")[0])
 
         doc = Document()
         response = doc.createElement('Response')

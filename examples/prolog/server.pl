@@ -9,9 +9,10 @@ server :- http_server(http_dispatch, [port(3000)]).
 process_request(Request) :-
 	member(method(post), Request), !,
 	http_read_data(Request, Data, []),
-	Data = [From|[To]],
+	Data = [From|[To|[Direction]]],
 	print_message(informational, From),
 	print_message(informational, To),
+	print_message(informational, Direction),
 	answer.
 
 answer :-

@@ -16,6 +16,7 @@ object Server extends App {
       val data = parseBody(text(req).run)
       println("from: " + data.getOrElse("from", ""))
       println("to: " + data.getOrElse("to", ""))
+      println("direction: " + data.getOrElse("direction", ""))
       Ok("roger that")
   }
 

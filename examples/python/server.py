@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
+from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import urlparse
 import logging
 
@@ -14,6 +14,7 @@ class MegaAwesomePythonServer(BaseHTTPRequestHandler):
 
         logging.debug("from: " + data.get("from")[0])
         logging.debug("to: " + data.get("to")[0])
+        logging.debug("direction: " + data.get("direction")[0])
 
         self.send_response(200)
         self.end_headers()

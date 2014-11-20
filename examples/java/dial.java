@@ -56,7 +56,7 @@ public class dial
 			{
 				stringBuilder.append(character);
 			}
-			// Print from and to
+			// Print from, to and direction
 			System.err.println("INFO: DATA: " + stringBuilder.toString());
 
 			String XMLResponse = "";

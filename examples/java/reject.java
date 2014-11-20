@@ -59,7 +59,7 @@ public class reject
 			{
 				stringBuilder.append(character);
 			}
-			// Print data from=&to=
+			// Print from, to and direction
 			System.err.println("INFO: DATA: " + stringBuilder.toString());
 
 			String XMLResponse = "";
