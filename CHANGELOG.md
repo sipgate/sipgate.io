@@ -1,6 +1,11 @@
 sipgate.io Changelog
 ====================
 
+1.5.0 Emil (2014-11-27)
+-----------------------
+***Features***
+* Set a custom caller id
+
 1.4.0 Frida (2014-11-20)
 -----------------------
 ***Features***
