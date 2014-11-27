@@ -49,12 +49,20 @@ Action            | Description
 Dial
 ----
 
-Send call to voicemail or an external number ([call charges apply](https://www.simquadrat.de/tarife/mobile)).
+Redirect the call and alter your caller id ([call charges apply](https://www.simquadrat.de/tarife/mobile)).
+
+Attribute | Possible values                                              | Default value
+--------- | ------------------------------------------------------------ | -------------
+callerId  | Number in [E.164](http://en.wikipedia.org/wiki/E.164) format | Account settings
+anonymous | true, false                                                  | Account / phone settings
+
+Possible targets for the dial command:
 
 Target    | Description
 --------- | -----------
 Number    | Send call to an external number (has to be in [E.164](http://en.wikipedia.org/wiki/E.164) format)
 Voicemail | Send call to [voicemail](https://www.simquadrat.de/feature-store/voicemail) (feature has to be booked)
+
 
 **Example 1: Redirect call**
 ```xml
@@ -72,6 +80,27 @@ Voicemail | Send call to [voicemail](https://www.simquadrat.de/feature-store/voi
 <Response>
 	<Dial>
 		<Voicemail />
+	</Dial>
+</Response>
+```
+
+**Example 3: Suppress phone number**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+	<Dial anonymous="true">
+		<Number>4915799912345</Number>
+	</Dial>
+</Response>
+```
+
+**Example 4: Set custom caller id for outgoing call**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+	<Dial callerId="492111234567">
+		<!-- Originally dialed number, extracted from POST request -->
+		<Number>4915799912345</Number>
 	</Dial>
 </Response>
 ```
