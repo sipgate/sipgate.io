@@ -18,20 +18,21 @@ $dial = $dom->createElement('Dial');
 $callerId = $dom->createAttribute('callerId');
 //$anonymous = $dom->createAttribute('anonymous');
 
-//RegEx the dialnumber, you should maybe change that for you ;-) 
+//RegEx the dialnumber, you should maybe change that for you ;-)
 preg_match("/(..)([1-9])[0-9]*/", $toNumber, $number_array);
 // Check if it an national call, this match for germany
 if ($number_array[1]!="49") {
-		// Set international callerID, please edit your number
-		$sendID = '49211000000';
-}	
-	// Is this an national call, check is it an landline or mobile call
-	elseif ($number_array[2]>"1") {
-		// Set landline callerID, please edit your number
-		$sendID = '49211000000';
-}	else {
-		// Set mobile callerID, please edit your number
-		$sendID = '4915799912345';
+	// Set international callerID, please edit your number
+	$sendID = '49211000000';
+}
+// Is this an national call, check is it an landline or mobile call
+elseif ($number_array[2]>"1") {
+	// Set landline callerID, please edit your number
+	$sendID = '49211000000';
+}
+else {
+	// Set mobile callerID, please edit your number
+	$sendID = '4915799912345';
 }
 // set callerId - you should change that to your desired number
 $callerId->value = $sendID;
