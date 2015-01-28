@@ -233,6 +233,10 @@ Authentication
 
 sipgate.io supports HTTP Basic Authentication. You can include your username and password within the URL (e.g. `https://username:password@example.com:8080`).
 
+Emergency calls
+===============
+
+sipgate.io does not process emergency calls. Emergency calls are immediately put through to emergency services.
 
 
 Help us make it better
