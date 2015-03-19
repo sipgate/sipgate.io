@@ -6,10 +6,17 @@ This README documents the sipgate.io functionality. A demo page can be found [he
 Requirements
 ------------
 
+### Usage with simquadrat
+
 * [x] [Order a simquadrat SIM](https://www.simquadrat.de)
 * [x] [Book the sipgate.io feature](https://www.simquadrat.de/feature-store/sipgate.io)
 * [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://www.simquadrat.de/dashboard)
 
+### Usage with sipgate go
+
+* [x] [Create a free sipgate go account](https://www.sipgate.de/go)
+* [x] [Book the sipgate.io feature](https://www.sipgate.de/go/feature-store/sipgate.io)
+* [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://www.sipgate.de/go/dashboard)
 
 
 The POST request
@@ -136,7 +143,7 @@ mpg123 --rate 8000 --mono -w output.wav input.mp3
 Reject
 ------
 
-Pretend to be busy or block unwanted calls. 
+Pretend to be busy or block unwanted calls.
 
 Attribute | Possible values | Default value
 --------- | --------------- | -------------
@@ -208,7 +215,7 @@ Troubleshooting
 sipgate.io Log
 --------------
 
-You can enable logging for debugging purposes from your simquadrat dashboard. You will find each request and the corresponding response in the logging table.
+You can enable logging for debugging purposes from your dashboard. You will find each request and the corresponding response in the logging table.
 
 How do I inspect network traffic?
 ---------------------------------
@@ -226,7 +233,7 @@ A word about security
 HTTP vs. HTTPS
 --------------
 
-We strongly encourage you to use a HTTPS server. Although we support plain HTTP connections we do not recommend pushing sensitive call details over unencrypted connections. By default sipgate.io does not accept [self-signed certificates](http://stackoverflow.com/a/10176685), but you can allow them in the simquadrat dashboard. Furthermore, you can add the public key of your certificate to protect the connection against man-in-the-middle attacks. Your certificate is validated by our server.
+We strongly encourage you to use a HTTPS server. Although we support plain HTTP connections we do not recommend pushing sensitive call details over unencrypted connections. By default sipgate.io does not accept [self-signed certificates](http://stackoverflow.com/a/10176685), but you can allow them in your dashboard. Furthermore, you can add the public key of your certificate to protect the connection against man-in-the-middle attacks. Your certificate is validated by our server.
 
 Authentication
 --------------
