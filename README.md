@@ -228,15 +228,18 @@ Stay tuned...
 Server Examples
 ===============
 
-We compiled a collection of server examples to get you started:
+To get you started we maintain server examples for:
+
+* [Node.js](https://github.com/sipgate/sipgate.io/tree/master/examples/nodejs)
+* [PHP](https://github.com/sipgate/sipgate.io/tree/master/examples/php)
+
+There are also examples in:
 
 * [C++](https://github.com/sipgate/sipgate.io/tree/master/examples/c++)
 * [Clojure](https://github.com/sipgate/sipgate.io/tree/master/examples/clojure)
 * [Common Lisp](https://github.com/sipgate/sipgate.io/tree/master/examples/commonlisp)
 * [Go](https://github.com/sipgate/sipgate.io/tree/master/examples/go)
 * [Java](https://github.com/sipgate/sipgate.io/tree/master/examples/java)
-* [Node.js](https://github.com/sipgate/sipgate.io/tree/master/examples/nodejs)
-* [PHP](https://github.com/sipgate/sipgate.io/tree/master/examples/php)
 * [Perl](https://github.com/sipgate/sipgate.io/tree/master/examples/perl)
 * [Prolog](https://github.com/sipgate/sipgate.io/tree/master/examples/prolog)
 * [Python](https://github.com/sipgate/sipgate.io/tree/master/examples/python)
