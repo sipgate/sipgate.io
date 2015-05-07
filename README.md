@@ -18,24 +18,44 @@ Requirements
 * [x] [Book the sipgate.io feature](https://www.sipgate.de/go/feature-store/sipgate.io)
 * [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://www.sipgate.de/go/dashboard)
 
+### Usage with sipgate team (closed beta)
+
+* [x] [Request access to our beta program](http://goo.gl/forms/8TS8kQj6kx)
+* [x] [After receiving the confirmation mail enter an URL for incoming/outgoing calls in sipgate team settings](https://secure.live.sipgate.de/settings/sipgateio)
+
 
 The POST request
 ================
 
-sipgate.io sends a simple POST request with an `application/x-www-form-urlencoded` payload. The request contains the following parameters:
+sipgate.io sends POST requests with an `application/x-www-form-urlencoded` payload. Depending on the type of request it contains the following parameters:
+
+### New call
 
 Parameter | Description
 --------- | -----------
 from      | The calling number (e.g. `"492111234567"` or `"anonymous"`)
 to        | The called number (e.g. `"4915791234567"`)
 direction | The direction of the call (either `"in"` or `"out"`)
+event     | "newCall"
+callId    | A unique alphanumeric identifier to match events to specific calls
 
-That's all!
-
-You can simulate this POST request and test your server with a simple cURL command:
+You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "from=492111234567&to=4915791234567&direction=in" http://localhost:3000
+curl -X POST --data "from=492111234567&to=4915791234567&direction=in&event=newCall&callId=123456" http://localhost:3000
+```
+
+### Call hangup
+
+Parameter | Description
+--------- | -----------
+event     | "hangup"
+callId    | Same as in newCall-Event for a specific call
+
+You can simulate this POST request and test your server with a cURL command:
+
+```sh
+curl -X POST --data "event=hangup&callId=123456" http://localhost:3000
 ```
 
 
@@ -52,6 +72,12 @@ Action            | Description
 [Play](#play)     | Play a sound file
 [Reject](#reject) | Reject call or pretend to be busy
 [Hangup](#hangup) | Hang up the call
+
+Additional to actions, the response can specify urls which shall be called by sipgate.io on certain call-events. These urls are specified in form of xml-attributes in the response-tag. The only event implemented so far is hangup.
+
+Url                   | Description
+--------------------- | -----------
+[onHangup](#onhangup) | Will receive a POST-request as soon as the call is ended. Either by hangup or cancel. The response to that request is discarded.
 
 Dial
 ----
@@ -181,6 +207,16 @@ Hang up calls
 </Response>
 ```
 
+onHangup
+------------
+
+**Example 1: Request notification for call hangup**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response onHangup="http://localhost:3000/hangup">
+</Response>
+```
 
 
 More to come
