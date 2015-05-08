@@ -1,6 +1,13 @@
 sipgate.io Changelog
 ====================
 
+1.6.0 Noah (2015-05-08)
+-----------------------
+***Features***
+* sipgate.io available in basic
+* sipgate.io available in team (beta)
+* POST request for end of call
+
 1.5.0 Emil (2014-11-27)
 -----------------------
 ***Features***
