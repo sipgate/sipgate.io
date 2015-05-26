@@ -50,14 +50,25 @@ curl -X POST --data "from=492111234567&to=4915791234567&direction=in&event=newCa
 Parameter | Description
 --------- | -----------
 event     | "hangup"
+cause     | The cause for the hangup event (see [table](#hangup-causes) below)
 callId    | Same as in newCall-Event for a specific call
 
 You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "event=hangup&callId=123456" http://localhost:3000
+curl -X POST --data "event=hangup&cause=callEnd&callId=123456" http://localhost:3000
 ```
 
+#### Hangup causes
+
+Hangups can occur due to these causes:
+
+Cause    | Description
+-------- | -----------
+callEnd  | One of the participants hung up after the call was established
+busy     | The called party was busy
+cancel   | The caller hung up before the called party picked up
+noAnswer | The called party rejected the call (e.g. through a DND setting)
 
 
 The XML response
@@ -214,8 +225,7 @@ onHangup
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<Response onHangup="http://localhost:3000/hangup">
-</Response>
+<Response onHangup="http://localhost:3000/hangup" />
 ```
 
 
