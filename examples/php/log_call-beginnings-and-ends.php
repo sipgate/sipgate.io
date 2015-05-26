@@ -23,9 +23,11 @@ if ($event == 'newCall') {
 
 } else if ($event == 'hangup') {
 
+	$cause = $_POST['cause'];
+
     // build the log row, example:
-    // 23456123 - 17.09.2014 10:05:25
-    $logRow = $callId . " - " . $timestamp;
+    // 23456123 - cancel - 17.09.2014 10:05:25
+    $logRow = $callId . " - " . $cause . " - " . $timestamp . PHP_EOL;
 
 }
 

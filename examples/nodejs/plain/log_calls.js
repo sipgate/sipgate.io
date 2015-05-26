@@ -1,4 +1,4 @@
-// example that show how to get sipgate.io to also push the end of the call
+// example that shows how to get sipgate.io to also push the end of the call
 
 var http = require('http');
 var queryString = require('querystring');
@@ -34,7 +34,7 @@ http.createServer(function (req, res) {
 				res.end();
 			}
 			else if (post['event'] == 'hangup' ) {
-				console.log('Call with id ' + post['callId'] + ' ended.');
+				console.log('Call with id ' + post['callId'] + ' ended with cause: ' + post['cause']);
 
 				res.writeHead(200);
 				res.end();

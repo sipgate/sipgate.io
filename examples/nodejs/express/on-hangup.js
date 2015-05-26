@@ -30,7 +30,7 @@ app.post("/hangup", function (request, response) {
 	var from = calls[callId]["from"]
 	var to = calls[callId]["to"]
 
-	console.log("hang up call from: " + from + " to: " + to);
+	console.log("hang up call from: " + from + " to: " + to + "with cause: " + request.body.cause);
 
 	response.send();
 });
