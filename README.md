@@ -56,19 +56,19 @@ callId    | Same as in newCall-Event for a specific call
 You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "event=hangup&cause=callEnd&callId=123456" http://localhost:3000
+curl -X POST --data "event=hangup&cause=normalClearing&callId=123456" http://localhost:3000
 ```
 
 #### Hangup causes
 
 Hangups can occur due to these causes:
 
-Cause    | Description
--------- | -----------
-callEnd  | One of the participants hung up after the call was established
-busy     | The called party was busy
-cancel   | The caller hung up before the called party picked up
-noAnswer | The called party rejected the call (e.g. through a DND setting)
+Cause           | Description
+--------------- | -----------
+normalClearing  | One of the participants hung up after the call was established
+busy            | The called party was busy
+cancel          | The caller hung up before the called party picked up
+noAnswer        | The called party rejected the call (e.g. through a DND setting)
 
 
 The XML response
