@@ -69,6 +69,7 @@ normalClearing  | One of the participants hung up after the call was established
 busy            | The called party was busy
 cancel          | The caller hung up before the called party picked up
 noAnswer        | The called party rejected the call (e.g. through a DND setting)
+congestion      | The called party could not be reached
 
 
 The XML response
