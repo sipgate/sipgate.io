@@ -47,7 +47,7 @@ curl -X POST --data "from=492111234567&to=4915791234567&direction=in&event=newCa
 
 ### Answer
 
-If you set the ["onAnswer" attribute](#onAnswer) sipgate.io will push an answer-event, when
+If you set the ["onAnswer" attribute](#onanswer) sipgate.io will push an answer-event, when
 a call is answered by the other party.
 
 Parameter | Description
@@ -63,7 +63,7 @@ curl -X POST --data "event=answer&callId=123456" http://localhost:3000
 
 ### Call hangup
 
-If you set the ["onHangup" attribute](#onHangup) sipgate.io will push a hangup-event
+If you set the ["onHangup" attribute](#onhangup) sipgate.io will push a hangup-event
 when the call ends.
 
 Parameter | Description
@@ -105,6 +105,7 @@ Action            | Description
 [Hangup](#hangup) | Hang up the call
 
 Additional to actions, the response can specify urls which shall be called by sipgate.io on certain call-events. Specify these urls via xml-attributes in the response-tag.
+
 Url                   | Description
 --------------------- | -----------
 [onAnswer](#onanswer) | Receives a POST-request as soon as someone answers the call. The response to that request is discarded.
