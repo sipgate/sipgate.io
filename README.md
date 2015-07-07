@@ -45,13 +45,32 @@ You can simulate this POST request and test your server with a cURL command:
 curl -X POST --data "from=492111234567&to=4915791234567&direction=in&event=newCall&callId=123456" http://localhost:3000
 ```
 
+### Answer
+
+If you set the ["onAnswer" attribute](#onAnswer) sipgate.io will push an answer-event, when
+a call is answered by the other party.
+
+Parameter | Description
+--------- | -----------
+event     | "answer"
+callId    | Same as in newCall-event for a specific call
+
+You can simulate this POST request and test your server with a cURL command:
+
+```sh
+curl -X POST --data "event=answer&callId=123456" http://localhost:3000
+```
+
 ### Call hangup
+
+If you set the ["onHangup" attribute](#onHangup) sipgate.io will push a hangup-event
+when the call ends.
 
 Parameter | Description
 --------- | -----------
 event     | "hangup"
 cause     | The cause for the hangup event (see [table](#hangup-causes) below)
-callId    | Same as in newCall-Event for a specific call
+callId    | Same as in newCall-event for a specific call
 
 You can simulate this POST request and test your server with a cURL command:
 
@@ -85,11 +104,11 @@ Action            | Description
 [Reject](#reject) | Reject call or pretend to be busy
 [Hangup](#hangup) | Hang up the call
 
-Additional to actions, the response can specify urls which shall be called by sipgate.io on certain call-events. These urls are specified in form of xml-attributes in the response-tag. The only event implemented so far is hangup.
-
+Additional to actions, the response can specify urls which shall be called by sipgate.io on certain call-events. Specify these urls via xml-attributes in the response-tag.
 Url                   | Description
 --------------------- | -----------
-[onHangup](#onhangup) | Will receive a POST-request as soon as the call is ended. Either by hangup or cancel. The response to that request is discarded.
+[onAnswer](#onanswer) | Receives a POST-request as soon as someone answers the call. The response to that request is discarded.
+[onHangup](#onhangup) | Receives a POST-request as soon as the call ends for whatever reason. The response to that request is discarded.
 
 Dial
 ----
@@ -217,6 +236,16 @@ Hang up calls
 <Response>
 	<Hangup />
 </Response>
+```
+
+onAnswer
+------------
+
+**Example 1: Request notification for call being answered **
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response onAnswer="http://localhost:3000/answer" />
 ```
 
 onHangup
