@@ -21,6 +21,7 @@ http.createServer(function (req, res) {
 				console.log('New call with id ' + post['callId'] + ' started.');
 
 				var response = builder.create('Response',{version: '1.0', encoding: 'UTF-8'},{});
+                response.att('onAnswer', 'http://' + req.headers.host + '/');
 				response.att('onHangup', 'http://' + req.headers.host + '/');
 
 				var body = response.toString();
@@ -33,6 +34,12 @@ http.createServer(function (req, res) {
 				res.write(body);
 				res.end();
 			}
+            else if (post['event'] == 'answer' ) {
+                console.log('Call with id ' + post['callId'] + ' was answered');
+
+                res.writeHead(200);
+                res.end();
+            }
 			else if (post['event'] == 'hangup' ) {
 				console.log('Call with id ' + post['callId'] + ' ended with cause: ' + post['cause']);
 
