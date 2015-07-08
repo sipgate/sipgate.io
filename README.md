@@ -60,6 +60,11 @@ You can simulate this POST request and test your server with a cURL command:
 ```sh
 curl -X POST --data "event=answer&callId=123456" http://localhost:3000
 ```
+=======
+Optional Parameter | Description
+-------------------|------------
+diversion          | If a call was diverted before it reached sipgate.io this contains the originally dialed number.
+
 
 ### Call hangup
 
