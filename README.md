@@ -18,7 +18,7 @@ Requirements
 * [x] [Book the sipgate.io feature](https://www.sipgate.de/go/feature-store/sipgate.io)
 * [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://www.sipgate.de/go/dashboard)
 
-### Usage with sipgate team (closed beta)
+### Usage with sipgate team
 
 * [x] Book sipgate.io in your team account (incurs monthly cost) or [request access to our developer program (free!)](http://goo.gl/forms/8TS8kQj6kx)
 * [x] [After receiving the confirmation mail enter an URL for incoming/outgoing calls in sipgate team settings](https://secure.live.sipgate.de/settings/sipgateio)
