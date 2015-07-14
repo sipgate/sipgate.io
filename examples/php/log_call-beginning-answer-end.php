@@ -29,7 +29,7 @@ if ($event == 'newCall') {
 
 } else if ($event == 'hangup') {
 
-	$cause = $_POST['cause'];
+    $cause = $_POST['cause'];
 
     // build the log row, example:
     // 23456123 - cancel - 17.09.2014 10:05:25
@@ -41,8 +41,6 @@ if ($event == 'newCall') {
 file_put_contents("callog.txt", $logRow, FILE_APPEND);
 
 die("Thanks - here's a motivational squirrel for you! https://www.youtube.com/watch?v=m3d03-sSiBE");
-
-
 
 
 // Create XML Response that sets Url to be called when call ends (hangup)
