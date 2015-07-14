@@ -236,7 +236,8 @@ Hangup
 
 Hang up calls
 
-**Example 1: Hang up call**
+**Example: Hang up call**
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
@@ -247,7 +248,7 @@ Hang up calls
 onAnswer
 ------------
 
-**Example 1: Request notification for call being answered **
+**Example: Request notification for call being answered**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -257,7 +258,7 @@ onAnswer
 onHangup
 ------------
 
-**Example 1: Request notification for call hangup**
+**Example: Request notification for call hangup**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
