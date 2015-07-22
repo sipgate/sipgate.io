@@ -59,11 +59,12 @@ Parameter | Description
 --------- | -----------
 event     | "answer"
 callId    | Same as in newCall-event for a specific call
+user      | Name of the user who answered this call (only for incoming calls)
 
 You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "event=answer&callId=123456" http://localhost:3000
+curl -X POST --data "event=answer&callId=123456&user=John+Doe" http://localhost:3000
 ```
 
 ### Call hangup
