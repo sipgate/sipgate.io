@@ -23,9 +23,16 @@ if ($event == 'newCall') {
 
 } else if ($event == 'answer') {
 
+    $user = "";
+
+    if ($_POST['user']) { // Only incoming calls can have a user
+        $user = urldecode($_POST['user']);
+    }
+
     // build the log row, example:
-    // 23456123 - 17.09.2014 10:05:25
-    $logRow = $callId . "- " . $timestamp . PHP_EOL;
+    // Incoming call: 23456123 - Anna Mayer - 17.09.2014 10:05:25
+    // Outgoing call: 23456123 -  - 17.09.2014 10:05:25
+    $logRow = $callId . " - " . $user . " - " . $timestamp . PHP_EOL;
 
 } else if ($event == 'hangup') {
 
@@ -41,7 +48,6 @@ if ($event == 'newCall') {
 file_put_contents("callog.txt", $logRow, FILE_APPEND);
 
 die("Thanks - here's a motivational squirrel for you! https://www.youtube.com/watch?v=m3d03-sSiBE");
-
 
 // Create XML Response that sets Url to be called when call ends (hangup)
 function set_onAnswer_onHangup($scriptUrl)
