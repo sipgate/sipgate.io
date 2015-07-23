@@ -35,7 +35,13 @@ http.createServer(function (req, res) {
                 res.end();
             }
             else if (post['event'] == 'answer') {
-                console.log('Call with id ' + post['callId'] + ' was answered');
+                
+                var logRow = 'Call with id ' + post['callId'] + ' was answered';
+
+                if (post['user']) { // Only incoming calls can have a user
+                    logRow += ' by ' + post['user'];
+                }
+                console.log(logRow);
 
                 res.writeHead(200);
                 res.end();
