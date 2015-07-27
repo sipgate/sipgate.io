@@ -6,7 +6,25 @@ var queryString = require('querystring');
 // requires xmlbuilder: npm install xmlbuilder
 var builder = require('xmlbuilder');
 
+
+function formatUserOrGroup(users) {
+    return Array.isArray(users)
+        ? ("group(" + users + ")")
+        : "users";
+}
+
+function newCallToString(newCall) {
+    var s = (newCall['direction'] === "in") 
+        ? (formatUserOrGroup(newCall['user']) + ' receives call ')
+        : newCall['user'] + ' makes call ';
+
+    s += newCall['from'] + " -> " + newCall['to']
+
+    return s;
+}
+
 http.createServer(function (req, res) {
+
     if (req.method == 'POST') {
         var data = '';
 
@@ -18,7 +36,7 @@ http.createServer(function (req, res) {
             var post = queryString.parse(data);
 
             if (post['event'] == 'newCall') {
-                console.log('New call with id ' + post['callId'] + ' started.');
+                console.log("Call " + post['callId'] + ' created: ' + newCallToString(post));
 
                 var response = builder.create('Response', {version: '1.0', encoding: 'UTF-8'}, {});
                 response.att('onAnswer', 'http://' + req.headers.host + '/');
@@ -35,13 +53,13 @@ http.createServer(function (req, res) {
                 res.end();
             }
             else if (post['event'] == 'answer') {
-                console.log('Call with id ' + post['callId'] + ' was answered');
+                console.log('Call ' + post['callId'] + ' was answered');
 
                 res.writeHead(200);
                 res.end();
             }
             else if (post['event'] == 'hangup') {
-                console.log('Call with id ' + post['callId'] + ' ended with cause: ' + post['cause']);
+                console.log('Call ' + post['callId'] + ' ended with cause: ' + post['cause']);
 
                 res.writeHead(200);
                 res.end();
