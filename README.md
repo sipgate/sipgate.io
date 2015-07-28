@@ -38,12 +38,12 @@ to        | The called number (e.g. `"4915791234567"`)
 direction | The direction of the call (either `"in"` or `"out"`)
 event     | "newCall"
 callId    | A unique alphanumeric identifier to match events to specific calls
-user      | For multiuser-sipgate-accounts, this parameter names the involved users. It is either the name of the calling user when direction is `"out"`, or of the users receiving the call when direction is `"in"`. Group calls may be received by multiple users. In that case a `"user"` parameter is set for each of these users.
+user[]    | The sipgate user(s) involved. It is the name of the calling user when direction is `"out"`, or of the users receiving the call when direction is `"in"`. Group calls may be received by multiple users. In that case a `"user[]"` parameter is set for each of these users. It is always `"user[]"` (not `"user"`), even if only one user is involved.
 
 You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "from=492111234567&to=4915791234567&direction=in&event=newCall&callId=123456&user=Alice&user=Bob" http://localhost:3000
+curl -X POST --data "from=492111234567&to=4915791234567&direction=in&event=newCall&callId=123456&user[]=Alice&user[]=Bob" http://localhost:3000
 ```
 
 =======
@@ -60,7 +60,7 @@ Parameter | Description
 --------- | -----------
 event     | "answer"
 callId    | Same as in newCall-event for a specific call
-user      | Name of the user who answered this call (only for incoming calls)
+user      | Name of the user who answered this call. Only incoming calls can have this parameter
 
 You can simulate this POST request and test your server with a cURL command:
 
