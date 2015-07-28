@@ -12,12 +12,19 @@ if ($event == 'newCall') {
     $fromNumber = $_POST['from'];     // the number of the caller
     $toNumber = $_POST['to'];         // the number on which the call was received on
     $direction = $_POST['direction'];   // the direction of the call (either "in" or "out")
+	$users = $_POST['user'];				// contains an array, because group calls can have several users
 
     // build the log row, example:
-    // 23456123 - 17.09.2014 10:05:25 - from 4921100000000 to 4921100000000 - direction: in
+    // 23456123 - 17.09.2014 10:05:25 - from 4921100000000 to 4921100000000 - direction: in - user: Anna Mayer - user: Marcus Satt
     $logRow = $callId . " - " . $timestamp .
         " - from " . $fromNumber . " to " . $toNumber .
-        " - direction: " . $direction . PHP_EOL;
+        " - direction: " . $direction;
+
+	foreach ($users as $user) {
+		$logRow .= " - user: " . $user;
+	}
+
+	$logRow .= PHP_EOL;
 
     set_onAnswer_onHangup('http://localhost:3000/log_call-beginning-answer-end.php'); // Call this script again on hangup
 
@@ -25,14 +32,14 @@ if ($event == 'newCall') {
 
     $user = "";
 
-    if ($_POST['user']) { // Only incoming calls can have a user
-        $user = urldecode($_POST['user']);
+    if ($_POST['user']) { // Only incoming calls have a user
+        $user = " - " . urldecode($_POST['user']);
     }
 
     // build the log row, example:
-    // Incoming call: 23456123 - Anna Mayer - 17.09.2014 10:05:25
-    // Outgoing call: 23456123 -  - 17.09.2014 10:05:25
-    $logRow = $callId . " - " . $user . " - " . $timestamp . PHP_EOL;
+    // Incoming call: 23456123 - 17.09.2014 10:05:25 - Anna Mayer
+    // Outgoing call: 23456123 - 17.09.2014 10:05:25
+    $logRow = $callId . " - " . $timestamp . $user . PHP_EOL;
 
 } else if ($event == 'hangup') {
 
