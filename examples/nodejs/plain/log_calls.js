@@ -1,4 +1,4 @@
-// example that shows how to get sipgate.io to also push the end of the call
+// example that shows how to tell sipgate.io to also push answer and end of the call
 
 var http = require('http');
 var queryString = require('querystring');
@@ -10,13 +10,13 @@ var builder = require('xmlbuilder');
 function formatUserOrGroup(users) {
     return Array.isArray(users)
         ? ("group(" + users + ")")
-        : "users";
+        : ("user " + users);
 }
 
 function newCallToString(newCall) {
     var s = (newCall['direction'] === "in") 
-        ? (formatUserOrGroup(newCall['user']) + ' receives call ')
-        : newCall['user'] + ' makes call ';
+        ? (formatUserOrGroup(newCall['user[]']) + ' receives call ')
+        : newCall['user[]'] + ' makes call ';
 
     s += newCall['from'] + " -> " + newCall['to']
 
