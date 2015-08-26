@@ -21,7 +21,7 @@ if ($event == 'newCall') {
         " - direction: " . $direction;
 
 	foreach ($users as $user) {
-		$logRow .= " - user: " . $user;
+		$logRow .= " - user: " . urldecode($user);
 	}
 
 	$logRow .= PHP_EOL;
@@ -29,8 +29,6 @@ if ($event == 'newCall') {
     set_onAnswer_onHangup('http://localhost:3000/log_call-beginning-answer-end.php'); // Call this script again on hangup
 
 } else if ($event == 'answer') {
-
-    $user = "";
 
     if ($_POST['user']) { // Only incoming calls have a user
         $user = " - " . urldecode($_POST['user']);
