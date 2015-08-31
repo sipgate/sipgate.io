@@ -1,7 +1,7 @@
 sipgate.io
 ==========
 
-This README documents the sipgate.io functionality. There's a [demo page](https://demo.sipgate.io) and a [newsletter](http://mailing.sipgate.de/f/42695-161642/).
+This README documents the sipgate.io functionality. There's a [demo page](https://demo.sipgate.io), [code examples](https://github.com/sipgate/sipgate.io/tree/master/examples), and a [newsletter](http://mailing.sipgate.de/f/42695-161642/).
 
 Requirements
 ------------
@@ -274,7 +274,7 @@ Stay tuned...
 
 
 
-Server Examples
+Code Examples
 ===============
 
 To get you started we maintain server examples for:
