@@ -96,6 +96,7 @@ busy            | The called party was busy
 cancel          | The caller hung up before the called party picked up
 noAnswer        | The called party rejected the call (e.g. through a DND setting)
 congestion      | The called party could not be reached
+notFound        | The called number does not exist or called party is offline
 
 
 The XML response
