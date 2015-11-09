@@ -1,6 +1,10 @@
 sipgate.io connect
 ==================
 
+sipgate.io extends your web application with real-time telephony data: We push call meta data to your web server for each call to a sipgate.io phone number. That way your application can display a caller's contact info and history, among other things. [See more information and use cases](https://www.sipgate.io)
+
+Add the sipgate.io connect button to offer your customers this additional value in the easist way possible. 
+
 This README shows how to integrate sipgate.io connect into your application:
 * Variables to pass into the signup process
 * Form template to get you started
