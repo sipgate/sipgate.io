@@ -12,7 +12,7 @@ Feel free to check out the [sipgate.io connect demo page](https://demo.sipgate.i
 [sipgate.io demo page](https://demo.sipgate.io).
 
 
-Variables to pass in the POST request
+Variables to pass in the GET request
 ================
 
 Parameter  | Description
@@ -28,28 +28,19 @@ Button and Form Template
 You can copy+paste this form for calling sipgate.io connect:
 
 ```html
-<form method="get" action="https://sipgate.io/de/connect">
+<form method="GET" action="https://sipgate.io/de/connect">
     <p>
 	    Connect this application with telephony so that calls are immediately displayed here
 	</p>
-	<input type="hidden" name="url" value="URL .IO SHOULD POST TO">
-	<input type="hidden" name="successUrl" value="URL TO REDIRECT TO AFTER SUCCESSFULL CONNECTION">
-	<input type="hidden" name="siteName" value="NAME OF YOUR APPLICATION">
+	<input type="hidden" name="url" value="https://example.com/io-target/">
+	<input type="hidden" name="successUrl" value="https://example.com/connected-to-io">
+	<input type="hidden" name="siteName" value="YourAwesomeApplication">
     <br>
     <button class="btn btn-primary btn-lg">Connect with telephony</button>
 </form>
 ```
 
 Please make sure to replace the values of the hidden fields with correct ones.
-
-A word about security
-=====================
-
-Authentication
---------------
-
-We plan to add authentication tokens in the near future.
-
 
 Help us make it better
 ======================
