@@ -21,13 +21,6 @@ url        | sipgate.io will pass call meta data to this URL
 successUrl | After signup we offer your users a link to this URL to return to your application
 siteName   | The name of your application. We refer to your application several times throughout signup
 
-You can simulate this POST request and test your server with a cURL command:
-
-TODO
-
-```sh
-curl -X POST --data "url=http://yourapp.com/customer123/io-notification-target&successUrl=http://yourapp.com/afterConnect&siteName=NameOfApp" http://demo.sipgate.io/connect
-```
 
 Button and Form Template
 ================
