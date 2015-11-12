@@ -1,7 +1,7 @@
 sipgate.io
 ==========
 
-This README documents the sipgate.io functionality. There's a [demo page](https://demo.sipgate.io) and a [newsletter](http://mailing.sipgate.de/f/42695-161642/).
+This README documents the sipgate.io functionality. There's a [demo page](https://demo.sipgate.io), [code examples](https://github.com/sipgate/sipgate.io/tree/master/examples), and a [newsletter](http://mailing.sipgate.de/f/42695-161642/).
 
 Requirements
 ------------
@@ -96,6 +96,7 @@ busy            | The called party was busy
 cancel          | The caller hung up before the called party picked up
 noAnswer        | The called party rejected the call (e.g. through a DND setting)
 congestion      | The called party could not be reached
+notFound        | The called number does not exist or called party is offline
 
 
 The XML response
@@ -274,7 +275,7 @@ Stay tuned...
 
 
 
-Server Examples
+Code Examples
 ===============
 
 To get you started we maintain server examples for:
