@@ -49,4 +49,4 @@ Please make sure to replace the values of the hidden fields with correct ones.
 Help us make it better
 ======================
 
-Please tell us how we can improve sipgate.io connect. If you have a specific feature request, found a bug or would like to add an example, please use contact stefan@sipgate.io. Thank you!
+Please tell us how we can improve sipgate.io connect. If you have a specific feature request, found a bug or would like to add an example, please use contact support@sipgate.io. Thank you!
