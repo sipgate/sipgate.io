@@ -85,6 +85,22 @@ You can simulate this POST request and test your server with a cURL command:
 curl -X POST --data "event=hangup&cause=normalClearing&callId=123456" http://localhost:3000
 ```
 
+### DTMF
+
+If [gather](#gather) produces a dtmf result, this result is pushed as an event to the url specified in the ["onData" attribute](#ondata) with the following parameters: 
+
+Parameter | Description
+--------- | -----------
+event     | "dtmf"
+dtmf      | Digit(s) the user has entered. If no input is received, the value of dtmf will be empty.
+callId    | Same as in newCall-event for a specific call
+
+You can simulate this POST request and test your server with a cURL command:
+
+```sh
+curl -X POST --data "event=dtmf&dtmf=1&callId=123456" http://localhost:3000
+```
+
 #### Hangup causes
 
 Hangups can occur due to these causes:
@@ -109,6 +125,7 @@ Action            | Description
 ----------------- | -----------
 [Dial](#dial)     | Send call to voicemail or external number
 [Play](#play)     | Play a sound file
+[Gather](#gather) | Collects digits that a caller enters with the telephone keypad.
 [Reject](#reject) | Reject call or pretend to be busy
 [Hangup](#hangup) | Hang up the call
 
@@ -138,6 +155,7 @@ Voicemail | Send call to [voicemail](https://www.simquadrat.de/feature-store/voi
 
 
 **Example 1: Redirect call**
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
@@ -148,6 +166,7 @@ Voicemail | Send call to [voicemail](https://www.simquadrat.de/feature-store/voi
 ```
 
 **Example 2: Send call to voicemail**
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
@@ -158,6 +177,7 @@ Voicemail | Send call to [voicemail](https://www.simquadrat.de/feature-store/voi
 ```
 
 **Example 3: Suppress phone number**
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
@@ -168,6 +188,7 @@ Voicemail | Send call to [voicemail](https://www.simquadrat.de/feature-store/voi
 ```
 
 **Example 4: Set custom caller id for outgoing call**
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
@@ -189,6 +210,7 @@ Url       | Play a sound file from a given URL
 
 
 **Example 1: Play a sound file**
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
@@ -205,6 +227,36 @@ Linux users might want to use ```mpg123``` to convert the file:
 mpg123 --rate 8000 --mono -w output.wav input.mp3
 ```
 
+Gather
+----
+
+Gather collects digits that a caller enters with the telephone keypad. The onData attribute is mandatory and takes an absolute URL as a value.
+
+Attribute | Possible values | Default value
+--------- | --------------- | -------------
+type      | dtmf | dtmf
+onData    | absolute URL | -
+maxDigits | integer >= 1 | 1
+timeout (ms) | integer >= 1 | 2000
+
+**Nesting Rules**
+
+The following verbs can be nested within ```<Gather>```:
+
+* [Play](#play) The timeout starts after the sound file has finished playing. After the first digit is received the audio will stop playing.
+
+**Example 1: DTMF with sound file and additional parameters**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+	<Gather onData="http://localhost:3000/dtmf" maxDigits="3" timeout="10000">
+		<Play>
+			<Url>https://example.com/example.wav</Url>
+		</Play>
+	</Gather>
+</Response>
+```
 
 Reject
 ------
@@ -217,6 +269,7 @@ reason    | rejected, busy  | rejected
 
 
 **Example 1: Reject call**
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
@@ -225,14 +278,13 @@ reason    | rejected, busy  | rejected
 ```
 
 **Example 2: Reject call signaling busy**
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
 	<Reject reason="busy" />
 </Response>
 ```
-
-
 
 Hangup
 ------
@@ -267,7 +319,6 @@ onHangup
 <?xml version="1.0" encoding="UTF-8"?>
 <Response onHangup="http://localhost:3000/hangup" />
 ```
-
 
 More to come
 ------------
