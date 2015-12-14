@@ -27,7 +27,7 @@ Requirements
 The POST request
 ================
 
-sipgate.io sends POST requests with an `application/x-www-form-urlencoded` payload. Depending on the type of request it contains the following parameters:
+When enabled, sipgate.io sends POST requests with an `application/x-www-form-urlencoded` payload for each of call involving your sipgate account. Depending on the type of request it contains the following parameters:
 
 ### New call
 
@@ -85,22 +85,6 @@ You can simulate this POST request and test your server with a cURL command:
 curl -X POST --data "event=hangup&cause=normalClearing&callId=123456" http://localhost:3000
 ```
 
-### DTMF
-
-If [gather](#gather) produces a dtmf result, this result is pushed as an event to the url specified in the ["onData" attribute](#ondata) with the following parameters: 
-
-Parameter | Description
---------- | -----------
-event     | "dtmf"
-dtmf      | Digit(s) the user has entered. If no input is received, the value of dtmf will be empty.
-callId    | Same as in newCall-event for a specific call
-
-You can simulate this POST request and test your server with a cURL command:
-
-```sh
-curl -X POST --data "event=dtmf&dtmf=1&callId=123456" http://localhost:3000
-```
-
 #### Hangup causes
 
 Hangups can occur due to these causes:
@@ -113,6 +97,23 @@ cancel          | The caller hung up before the called party picked up
 noAnswer        | The called party rejected the call (e.g. through a DND setting)
 congestion      | The called party could not be reached
 notFound        | The called number does not exist or called party is offline
+
+
+### DTMF
+
+If you ["gather"](#gather) users' dtmf reactions, this result is pushed as an event to the url specified in the ["onData" attribute](#ondata) with the following parameters: 
+
+Parameter | Description
+--------- | -----------
+event     | "dtmf"
+dtmf      | Digit(s) the user has entered. If no input is received, the value of dtmf will be empty.
+callId    | Same as in newCall-event for a specific call
+
+You can simulate this POST request and test your server with a cURL command:
+
+```sh
+curl -X POST --data "event=dtmf&dtmf=1&callId=123456" http://localhost:3000
+```
 
 
 The XML response
