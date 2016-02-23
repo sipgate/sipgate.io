@@ -37,7 +37,7 @@ from      | The calling number (e.g. `"492111234567"` or `"anonymous"`)
 to        | The called number (e.g. `"4915791234567"`)
 direction | The direction of the call (either `"in"` or `"out"`)
 event     | "newCall"
-callId    | A unique alphanumeric identifier to match events to specific calls
+callId    | A unique alphanumeric identifier to match events to specific calls (This `callId` is the same as the `session_id`, should you [initiate the call via the sipgate XML-RPC API](http://book.sipgate.io/content/click2call.html))
 user[]    | The sipgate user(s) involved. It is the name of the calling user when direction is `"out"`, or of the users receiving the call when direction is `"in"`. Group calls may be received by multiple users. In that case a `"user[]"` parameter is set for each of these users. It is always `"user[]"` (not `"user"`), even if only one user is involved.
 
 You can simulate this POST request and test your server with a cURL command:
