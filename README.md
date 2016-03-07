@@ -1,7 +1,41 @@
 sipgate.io
 ==========
 
-This README documents the sipgate.io functionality. There's a [demo page](https://demo.sipgate.io), [code examples](https://github.com/sipgate/sipgate.io/tree/master/examples), and a [newsletter](http://mailing.sipgate.de/f/42695-161642/).
+This README documents [sipgate.io](https://www.sipgate.io), a real-time telephony API by [sipgate](http://www.sipgate.de). There's a [demo page](https://demo.sipgate.io), [code examples](https://github.com/sipgate/sipgate.io/tree/master/examples), and a [newsletter](http://mailing.sipgate.de/f/42695-161642/).
+
+Table of Contents
+------------
+
+* [sipgate.io](#sipgateio)
+* [Requirements](#requirements)
+  *   [Usage with simquadrat](#usage-with-simquadrat)
+  *   [Usage with sipgate basic](#usage-with-sipgate-basic)
+  *   [Usage with sipgate team](#usage-with-sipgate-team)
+*   [The POST request](#the-post-request)
+  *   [New call](#new-call)
+  *   [Answer](#answer)
+  *   [Call hangup](#call-hangup)
+    *   [Hangup causes](#hangup-causes)
+  *   [DTMF](#dtmf)
+*   [The XML response](#the-xml-response)
+  *   [Dial](#dial)
+  *   [Play](#play) 
+  *   [Gather](#gather)
+  *   [Reject](#reject)
+  *   [Hangup](#hangup)
+  *   [onAnswer](#onanswer)
+  *   [onHangup](#onhangup)
+  *   [More to come](#more-to-come)
+*   [Code Examples](#code-examples)
+*   [Troubleshooting](#troubleshooting)
+  *   [sipgate.io Log](#sipgateio-log)
+  *   [How do I inspect network traffic?](#how-do-i-inspect-network-traffic)
+  *   [A word about security](#a-word-about-security)
+  *   [HTTP vs. HTTPS](#http-vs-https) 
+  *   [Authentication](#authentication)
+  *   [Emergency calls](#emergency-calls)
+*   [Help us make it better](#help-us-make-it-better)
+
 
 Requirements
 ------------
