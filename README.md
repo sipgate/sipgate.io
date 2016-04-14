@@ -95,12 +95,21 @@ Parameter | Description
 event     | "answer"
 callId    | Same as in newCall-event for a specific call
 user      | Name of the user who answered this call. Only incoming calls can have this parameter
+from      | The calling number (e.g. `"492111234567"` or `"anonymous"`)
+to        | The called number (e.g. `"4915791234567"`)
+direction | The direction of the call (either `"in"` or `"out"`)
 
 You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "event=answer&callId=123456&user=John+Doe" http://localhost:3000
+curl -X POST --data "from=492111234567&to=4915791234567&direction=in&event=answer&callId=123456&user=John+Doe" http://localhost:3000
 ```
+
+=======
+Optional Parameter | Description
+-------------------|------------
+diversion          | If a call was diverted before it reached sipgate.io this contains the originally dialed number.
+
 
 ### Call hangup
 
@@ -112,12 +121,20 @@ Parameter | Description
 event     | "hangup"
 cause     | The cause for the hangup event (see [table](#hangup-causes) below)
 callId    | Same as in newCall-event for a specific call
+from      | The calling number (e.g. `"492111234567"` or `"anonymous"`)
+to        | The called number (e.g. `"4915791234567"`)
+direction | The direction of the call (either `"in"` or `"out"`)
 
 You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "event=hangup&cause=normalClearing&callId=123456" http://localhost:3000
+curl -X POST --data "from=492111234567&to=4915791234567&direction=in&event=hangup&cause=normalClearing&callId=123456" http://localhost:3000
 ```
+
+=======
+Optional Parameter | Description
+-------------------|------------
+diversion          | If a call was diverted before it reached sipgate.io this contains the originally dialed number.
 
 #### Hangup causes
 
