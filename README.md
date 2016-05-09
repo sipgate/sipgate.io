@@ -67,17 +67,17 @@ When enabled, sipgate.io sends POST requests with an `application/x-www-form-url
 
 Parameter | Description
 --------- | -----------
+event     | "newCall"
 from      | The calling number (e.g. `"492111234567"` or `"anonymous"`)
 to        | The called number (e.g. `"4915791234567"`)
 direction | The direction of the call (either `"in"` or `"out"`)
-event     | "newCall"
 callId    | A unique alphanumeric identifier to match events to specific calls (This `callId` is the same as the `session_id`, should you [initiate the call via the sipgate XML-RPC API](http://book.sipgate.io/content/click2call.html))
 user[]    | The sipgate user(s) involved. It is the name of the calling user when direction is `"out"`, or of the users receiving the call when direction is `"in"`. Group calls may be received by multiple users. In that case a `"user[]"` parameter is set for each of these users. It is always `"user[]"` (not `"user"`), even if only one user is involved.
 
 You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "from=492111234567&to=4915791234567&direction=in&event=newCall&callId=123456&user[]=Alice&user[]=Bob" http://localhost:3000
+curl -X POST --data "event=newCall&from=492111234567&to=4915791234567&direction=in&callId=123456&user[]=Alice&user[]=Bob" http://localhost:3000
 ```
 
 =======
@@ -90,19 +90,20 @@ diversion          | If a call was diverted before it reached sipgate.io this co
 If you set the ["onAnswer" attribute](#onanswer) sipgate.io will push an answer-event, when
 a call is answered by the other party.
 
-Parameter | Description
---------- | -----------
-event     | "answer"
-callId    | Same as in newCall-event for a specific call
-user      | Name of the user who answered this call. Only incoming calls can have this parameter
-from      | The calling number (e.g. `"492111234567"` or `"anonymous"`)
-to        | The called number (e.g. `"4915791234567"`)
-direction | The direction of the call (either `"in"` or `"out"`)
+Parameter       | Description
+--------------- | -----------
+event           | "answer"
+callId          | Same as in newCall-event for a specific call
+user            | Name of the user who answered this call. Only incoming calls can have this parameter
+from            | The calling number (e.g. `"492111234567"` or `"anonymous"`)
+to              | The called number (e.g. `"4915791234567"`)
+direction       | The direction of the call (either `"in"` or `"out"`)
+answeringNumber | The number of the answering destination. Useful when redirecting to multiple destinations
 
 You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "from=492111234567&to=4915791234567&direction=in&event=answer&callId=123456&user=John+Doe" http://localhost:3000
+curl -X POST --data "event=answer&callId=123456&user=John+Doe&from=492111234567&to=4915791234567&direction=in&answeringNumber=21199999999" http://localhost:3000
 ```
 
 =======
@@ -116,19 +117,20 @@ diversion          | If a call was diverted before it reached sipgate.io this co
 If you set the ["onHangup" attribute](#onhangup) sipgate.io will push a hangup-event
 when the call ends.
 
-Parameter | Description
---------- | -----------
-event     | "hangup"
-cause     | The cause for the hangup event (see [table](#hangup-causes) below)
-callId    | Same as in newCall-event for a specific call
-from      | The calling number (e.g. `"492111234567"` or `"anonymous"`)
-to        | The called number (e.g. `"4915791234567"`)
-direction | The direction of the call (either `"in"` or `"out"`)
+Parameter       | Description
+--------------- | -----------
+event           | "hangup"
+cause           | The cause for the hangup event (see [table](#hangup-causes) below)
+callId          | Same as in newCall-event for a specific call
+from            | The calling number (e.g. `"492111234567"` or `"anonymous"`)
+to              | The called number (e.g. `"4915791234567"`)
+direction       | The direction of the call (either `"in"` or `"out"`)
+answeringNumber | The number of the answering destination. Useful when redirecting to multiple destinations
 
 You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "from=492111234567&to=4915791234567&direction=in&event=hangup&cause=normalClearing&callId=123456" http://localhost:3000
+curl -X POST --data "event=hangup&cause=normalClearing&callId=123456&from=492111234567&to=4915791234567&direction=in&answeringNumber=4921199999999" http://localhost:3000
 ```
 
 =======
@@ -191,7 +193,7 @@ Url                   | Description
 Dial
 ----
 
-Redirect the call and alter your caller id ([call charges apply](https://www.simquadrat.de/tarife/mobile)).
+Redirect the call and alter your caller id ([call charges apply](https://www.simquadrat.de/tarife/mobile)). Calls with ```direction=in``` can be redirected to multiple targets.
 
 Attribute | Possible values                                              | Default value
 --------- | ------------------------------------------------------------ | -------------
@@ -250,6 +252,20 @@ Voicemail | Send call to [voicemail](https://www.simquadrat.de/feature-store/voi
 	</Dial>
 </Response>
 ```
+
+**Example 5: Redirect incoming call to multiple destinations**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+	<Dial>
+		<Number>4915799912345</Number>
+		<Number>492111234567</Number>
+	</Dial>
+</Response>
+```
+
+When the call is answered, the resulting answer-event reports the answering destination in a field called ```answeringNumber```.
 
 Play
 ----
