@@ -193,7 +193,7 @@ Url                   | Description
 Dial
 ----
 
-Redirect the call and alter your caller id ([call charges apply](https://www.simquadrat.de/tarife/mobile)). Calls with ```direction=in``` can be redirected to multiple targets.
+Redirect the call and alter your caller id ([call charges apply](https://www.simquadrat.de/tarife/mobile)). Calls with ```direction=in``` can be redirected to up to 5 targets.
 
 Attribute | Possible values                                              | Default value
 --------- | ------------------------------------------------------------ | -------------
