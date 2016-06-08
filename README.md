@@ -8,9 +8,9 @@ Table of Contents
 
 * [sipgate.io](#sipgateio)
 * [Requirements](#requirements)
-  *   [Usage with simquadrat](#usage-with-simquadrat)
-  *   [Usage with sipgate basic](#usage-with-sipgate-basic)
   *   [Usage with sipgate team](#usage-with-sipgate-team)
+  *   [Usage with sipgate basic](#usage-with-sipgate-basic)
+  *   [Usage with simquadrat](#usage-with-simquadrat)
 *   [The POST request](#the-post-request)
   *   [New call](#new-call)
   *   [Answer](#answer)
@@ -40,11 +40,10 @@ Table of Contents
 Requirements
 ------------
 
-### Usage with simquadrat
+### Usage with sipgate team
 
-* [x] [Order a simquadrat SIM](https://www.simquadrat.de)
-* [x] [Book the sipgate.io feature](https://www.simquadrat.de/feature-store/sipgate.io-s)
-* [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://www.simquadrat.de/dashboard)
+* [x] Book sipgate.io in your team account (incurs monthly cost) or [request access to our developer program (free!)](http://goo.gl/forms/8TS8kQj6kx)
+* [x] [After receiving the confirmation mail enter an URL for incoming/outgoing calls in sipgate team settings](https://secure.live.sipgate.de/settings/sipgateio)
 
 ### Usage with sipgate basic
 
@@ -52,10 +51,11 @@ Requirements
 * [x] [Book the sipgate.io feature](https://www.sipgate.de/basic/feature-store/sipgate.io-s)
 * [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://www.sipgate.de/basic/dashboard)
 
-### Usage with sipgate team
+### Usage with simquadrat
 
-* [x] Book sipgate.io in your team account (incurs monthly cost) or [request access to our developer program (free!)](http://goo.gl/forms/8TS8kQj6kx)
-* [x] [After receiving the confirmation mail enter an URL for incoming/outgoing calls in sipgate team settings](https://secure.live.sipgate.de/settings/sipgateio)
+* [x] [Order a simquadrat SIM](https://www.simquadrat.de)
+* [x] [Book the sipgate.io feature](https://www.simquadrat.de/feature-store/sipgate.io-s)
+* [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://www.simquadrat.de/dashboard)
 
 
 The POST request
