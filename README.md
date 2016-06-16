@@ -27,6 +27,7 @@ Table of Contents
   *   [onHangup](#onhangup)
   *   [More to come](#more-to-come)
 *   [Code Examples](#code-examples)
+*   [FAQ](#faq)
 *   [Troubleshooting](#troubleshooting)
   *   [sipgate.io Log](#sipgateio-log)
   *   [How do I inspect network traffic?](#how-do-i-inspect-network-traffic)
@@ -415,6 +416,31 @@ There are also examples in:
 * [Ruby](https://github.com/sipgate/sipgate.io/tree/master/examples/ruby)
 * [Scala](https://github.com/sipgate/sipgate.io/tree/master/examples/scala)
 
+FAQ
+===============
+
+What happens when a call is transferred?
+--------------
+
+The transferred call is a new call. Scenario: Jennifer calls Doc Brown and Doc Brown transfers the call to Marty and Marty picks up. 
+ Here's what sipgate.io sends to your server:
+
+1. newCall (user: Doc, callId: 12111955)
+2. answer (user: Doc, callId: 12111955)
+  * [Doc dials *3 \<Marty's extension\>]
+3. newCall (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
+4. answer (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
+5. hangup (user: Doc, callId: 12111955)
+
+As you can see, the ```callId``` changes with the transfer.
+
+This is what sipgate.io sends, in case Marty does not pick up:
+
+1. newCall (user: Doc, callId: 12111955)
+2. answer (user: Doc, callId: 12111955)
+  * [Doc dials *3 \<Marty's extension\>]
+3. newCall (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
+4. hangup (user: Marty, callId: 21102015)
 
 
 Troubleshooting
