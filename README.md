@@ -151,6 +151,7 @@ cancel          | The caller hung up before the called party picked up
 noAnswer        | The called party rejected the call (e.g. through a DND setting)
 congestion      | The called party could not be reached
 notFound        | The called number does not exist or called party is offline
+forwarded       | The call was forwarded to a different party
 
 
 ### DTMF
@@ -441,6 +442,23 @@ This is what sipgate.io sends, in case Marty does not pick up:
   * [Doc dials *3 \<Marty's extension\>]
 3. newCall (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
 4. hangup (user: Marty, callId: 21102015)
+
+How is forwarding signaled?
+--------------
+
+The forwarded call is handled as a new call. Let's assume the previous scenario: Jennifer calls Doc Brown but his line is busy so the call is forwarded to Marty who in turn picks up the call.  
+Here are the pushes sipgate.io will send to your server:
+
+1. newCall (user: Doc, callId: 12111955)
+2. hangup (cause: forwarded, callId: 12111955)
+3. newCall (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
+4. answer (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
+5. hangup (user: Marty, callId: 21102015)
+
+I get a lot of event during forwards and transfers, do I have to pay for all of them?
+-------------------------
+The answer is: It depends.  
+If you transfer or forward a call within the same sipgate account then the answer is no. But if you forward or transfer a call to a different sipgate account or an external number then those pushes are being billed to your account.
 
 
 Troubleshooting
