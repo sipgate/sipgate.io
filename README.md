@@ -423,25 +423,27 @@ FAQ
 What happens when a call is transferred?
 --------------
 
-The transferred call is a new call. Scenario: Jennifer calls Doc Brown and Doc Brown transfers the call to Marty and Marty picks up. 
+The transferred call is a new call. Scenario: Jennifer calls Doc Brown, he answers and then transfers the call to Marty and she picks up. 
  Here's what sipgate.io sends to your server:
 
 1. newCall (user: Doc, callId: 12111955)
 2. answer (user: Doc, callId: 12111955)
   * [Doc dials *3 \<Marty's extension\>]
-3. newCall (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
-4. answer (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
+3. newCall (user: Marty, callId: 21102015, origCallId: 12111955, diversion: \<Doc's number\>, from: \<Jennifer's number\>)
+4. answer (user: Marty, callId: 21102015, origCallId: 12111955, diversion|answeringNumber: \<Doc's number\>, from: \<Jennifer's number\>)
 5. hangup (user: Doc, callId: 12111955)
+6. hangup (user: Marty, callId: 21102015, origCallId: 12111955, diversion|answeringNumber: \<Doc's number\>, from: \<Jennifer's number\>)
 
-As you can see, the ```callId``` changes with the transfer.
+As you can see, the ```callId``` changes with the transfer along with a new field ```origCallId```.
 
 This is what sipgate.io sends, in case Marty does not pick up:
 
 1. newCall (user: Doc, callId: 12111955)
 2. answer (user: Doc, callId: 12111955)
   * [Doc dials *3 \<Marty's extension\>]
-3. newCall (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
-4. hangup (user: Marty, callId: 21102015)
+3. newCall (user: Marty, callId: 21102015, origCallId: 12111955, diversion: \<Doc's number\>, from: \<Jennifer's number\>)
+4. hangup (user: Doc, callId: 12111955)
+5. hangup (user: Marty, callId: 21102015, origCallId: 12111955, diversion: \<Doc's number\>, from: \<Jennifer's number\>)
 
 How is forwarding signaled?
 --------------
@@ -451,9 +453,9 @@ Here are the pushes sipgate.io will send to your server:
 
 1. newCall (user: Doc, callId: 12111955)
 2. hangup (cause: forwarded, callId: 12111955)
-3. newCall (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
-4. answer (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
-5. hangup (user: Marty, callId: 21102015)
+3. newCall (user: Marty, callId: 21102015, origCallId: 12111955, diversion: \<Doc's number\>, from: \<Jennifer's number\>)
+4. answer (user: Marty, callId: 21102015, origCallId: 12111955, diversion: \<Doc's number\>, from: \<Jennifer's number\>)
+5. hangup (user: Marty, callId: 21102015, origCallId: 12111955, diversion: \<Doc's number\>, from: \<Jennifer's number\>)
 
 I get a lot of event during forwards and transfers, do I have to pay for all of them?
 -------------------------
