@@ -81,7 +81,7 @@ You can simulate this POST request and test your server with a cURL command:
 curl -X POST --data "event=newCall&from=492111234567&to=4915791234567&direction=in&callId=123456&user[]=Alice&user[]=Bob" http://localhost:3000
 ```
 
-=======
+
 Optional Parameter | Description
 -------------------|------------
 diversion          | If a call was diverted before it reached sipgate.io this contains the originally dialed number.
@@ -107,7 +107,6 @@ You can simulate this POST request and test your server with a cURL command:
 curl -X POST --data "event=answer&callId=123456&user=John+Doe&from=492111234567&to=4915791234567&direction=in&answeringNumber=21199999999" http://localhost:3000
 ```
 
-=======
 Optional Parameter | Description
 -------------------|------------
 diversion          | If a call was diverted before it reached sipgate.io this contains the originally dialed number.
@@ -134,7 +133,6 @@ You can simulate this POST request and test your server with a cURL command:
 curl -X POST --data "event=hangup&cause=normalClearing&callId=123456&from=492111234567&to=4915791234567&direction=in&answeringNumber=4921199999999" http://localhost:3000
 ```
 
-=======
 Optional Parameter | Description
 -------------------|------------
 diversion          | If a call was diverted before it reached sipgate.io this contains the originally dialed number.
