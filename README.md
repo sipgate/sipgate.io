@@ -429,7 +429,7 @@ The transferred call is a new call. Scenario: Jennifer calls Doc Brown and Doc B
   * [Doc dials *3 \<Marty's extension\>]
 3. newCall (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
 4. answer (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
-5. hangup (user: Doc, callId: 12111955)
+5. hangup (user: Marty, callId: 21102015; user: Doc, callId: 12111955)
 
 As you can see, the ```callId``` changes with the transfer.
 
@@ -439,7 +439,7 @@ This is what sipgate.io sends, in case Marty does not pick up:
 2. answer (user: Doc, callId: 12111955)
   * [Doc dials *3 \<Marty's extension\>]
 3. newCall (user: Marty, callId: 21102015, diversion: \<Doc's number\> from: \<Jennifer's number\>)
-4. hangup (user: Marty, callId: 21102015)
+4. hangup (user: Marty, callId: 21102015; user: Doc, callId: 12111955)
 
 How is forwarding signaled?
 --------------
