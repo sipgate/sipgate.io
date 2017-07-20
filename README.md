@@ -270,7 +270,7 @@ When the call is answered, the resulting answer-event reports the answering dest
 Play
 ----
 
-Play a given sound file.
+Play a given sound file and hangup the call when finished.
 
 Target    | Description
 --------- | -----------
