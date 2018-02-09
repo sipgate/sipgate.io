@@ -50,13 +50,13 @@ Requirements
 
 * [x] [Create a free sipgate basic account](https://www.sipgate.de/basic)
 * [x] [Book the sipgate.io feature](https://www.sipgate.de/basic/feature-store/sipgate.io-s)
-* [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://app.sipgate.com/w0/connections/phonelines/p0/dialog/sipgate-io-url/incoming)
+* [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://console.sipgate.com/webhooks/urls)
 
 ### Usage with simquadrat
 
 * [x] [Order a simquadrat SIM](https://www.simquadrat.de)
 * [x] [Book the sipgate.io feature](https://www.simquadrat.de/feature-store/sipgate.io-s)
-* [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://app.sipgate.com/w0/connections/phonelines/p0/dialog/sipgate-io-url/incoming)
+* [x] [Enter an URL for incoming/outgoing calls in the dashboard](https://console.sipgate.com/webhooks/urls)
 
 
 The POST request
