@@ -66,20 +66,21 @@ When enabled, sipgate.io sends POST requests with an `application/x-www-form-url
 
 ### New call
 
-Parameter | Description
---------- | -----------
-event     | "newCall"
-from      | The calling number (e.g. `"492111234567"` or `"anonymous"`)
-to        | The called number (e.g. `"4915791234567"`)
-direction | The direction of the call (either `"in"` or `"out"`)
-callId    | A unique alphanumeric identifier to match events to specific calls (This `callId` is the same as the `session_id`, should you [initiate the call via the sipgate XML-RPC API](http://book.sipgate.io/content/click2call.html))
-user[]    | The sipgate user(s) involved. It is the name of the calling user when direction is `"out"`, or of the users receiving the call when direction is `"in"`. Group calls may be received by multiple users. In that case a `"user[]"` parameter is set for each of these users. It is always `"user[]"` (not `"user"`), even if only one user is involved.
-userId[]  | The IDs of sipgate user(s) involved.
+Parameter    | Description
+------------ | -----------
+event        | "newCall"
+from         | The calling number (e.g. `"492111234567"` or `"anonymous"`)
+to           | The called number (e.g. `"4915791234567"`)
+direction    | The direction of the call (either `"in"` or `"out"`)
+callId       | A unique alphanumeric identifier to match events to specific calls (This `callId` is the same as the `session_id`, should you [initiate the call via the sipgate XML-RPC API](http://book.sipgate.io/content/click2call.html))
+user[]       | The sipgate user(s) involved. It is the name of the calling user when direction is `"out"`, or of the users receiving the call when direction is `"in"`. Group calls may be received by multiple users. In that case a `"user[]"` parameter is set for each of these users. It is always `"user[]"` (not `"user"`), even if only one user is involved.
+userId[]     | The IDs of sipgate user(s) involved (e.g. `w0`).
+fullUserId[] | The full IDs of sipgate user(s) involved (e.g. `1234567w0`).
 
 You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "event=newCall&from=492111234567&to=4915791234567&direction=in&callId=123456&user[]=Alice&user[]=Bob&userId[]=1234567w0" http://localhost:3000
+curl -X POST --data "event=newCall&from=492111234567&to=4915791234567&direction=in&callId=123456&user[]=Alice&user[]=Bob&userId[]=w0&userId[]=w1&fullUserId[]=1234567w0&fullUserId[]=1234567w1" http://localhost:3000
 ```
 
 
@@ -97,7 +98,8 @@ Parameter       | Description
 event           | "answer"
 callId          | Same as in newCall-event for a specific call
 user            | Name of the user who answered this call. Only incoming calls can have this parameter
-userId          | The IDs of sipgate user(s) involved.
+userId          | The ID of sipgate user(s) involved (e.g. `w0`).
+fullUserId      | The full ID of sipgate user(s) involved (e.g. `1234567w0`).
 from            | The calling number (e.g. `"492111234567"` or `"anonymous"`)
 to              | The called number (e.g. `"4915791234567"`)
 direction       | The direction of the call (either `"in"` or `"out"`)
@@ -106,7 +108,7 @@ answeringNumber | The number of the answering destination. Useful when redirecti
 You can simulate this POST request and test your server with a cURL command:
 
 ```sh
-curl -X POST --data "event=answer&callId=123456&user=John+Doe&userId=1234567w0&from=492111234567&to=4915791234567&direction=in&answeringNumber=21199999999" http://localhost:3000
+curl -X POST --data "event=answer&callId=123456&user=John+Doe&userId=w0&fullUserId=1234567w0&from=492111234567&to=4915791234567&direction=in&answeringNumber=21199999999" http://localhost:3000
 ```
 
 Optional Parameter | Description
