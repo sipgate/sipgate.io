@@ -3,6 +3,8 @@ sipgate.io
 
 This README documents [sipgate.io](https://www.sipgate.io), a real-time telephony API by [sipgate](http://www.sipgate.de). There's a [demo page](https://demo.sipgate.io), [code examples](https://github.com/sipgate/sipgate.io/tree/master/examples), and a [newsletter](http://mailing.sipgate.de/f/42695-161642/).
 
+For more code samples in javascript, java or python visit [github.com/sipgate-io](https://github.com/sipgate-io).
+
 Table of Contents
 ------------
 
